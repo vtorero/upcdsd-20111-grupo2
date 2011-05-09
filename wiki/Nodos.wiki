@@ -1,0 +1,25 @@
+= Introduction =
+
+Los Nodos identificados para el caso de negocios descrito:
+
+Nodo 1: Venta de Producto
+Nodo 2: Stock de Producto
+Nodo 3: Consulta de Crédito
+Nodo 4: Cliente
+
+= Details =
+
+Venta de Producto: 
+ - Registro de Pedido
+ - Consulta de Pedidos del Vendedor
+ - Consulta detalle de Pedido
+
+Stock de Productos:
+ - Consulta de Producto
+ - Sincronizar Stock con BD Central
+
+Consutla de Créditos
+ - Consulta de línea de crédito
+ - Consulta de Deuda Vencida
+
+Cliente
