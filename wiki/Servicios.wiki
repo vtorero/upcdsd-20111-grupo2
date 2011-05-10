@@ -10,12 +10,18 @@ Venta de Producto:
 
 Operaciones
   * Consulta de productos:
-    * *Parametros:* tipo de producto.
+    * *Parametros:* código de tipo de producto.
     * *Valor de retorno:* Listado de productos en almacen.
 
   * Consulta de detalle de producto:
     * *Parametros:* código del producto
-    * *Valor de retorno:* Producto
+    * *Valor de retorno:* 
+       Producto:
+         * Descripción
+         * Precio
+         * Tipo
+         * Stock
+
 
 Consutla de Créditos
  - Consulta de línea de crédito
