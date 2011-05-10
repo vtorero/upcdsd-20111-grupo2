@@ -1,64 +1,62 @@
 Los Servicios identificados por Nodo son los siguientes:
+1 *Venta de Producto:*
 
-*Venta de Producto*
- - Registro de Pedido: Registra las ordenes capturadas por los vendedores, para ello es necesario registrar la información del cliente y los productos que solicita.
-Parametros: Lista de Código de Cliente, Código de Producto y Cantidad de Producto
-Valor de Retorno: Código de Pedido y Monto del Pedido
+Operaciones
+ 1.1 *Registro de Pedido*
 
- - Consulta de Pedidos del Vendedor:Devuelve los pedidos generados por el vendedor
-Parametros: Código de Vendedor, Rango de fecha de pedido
-Valor de Retorno: Lista de Códigos de Pedidos y Monto del Pedido.
+a) Parámetros
 
- - Consulta detalle de Pedido:Listado del detalle del Pedido
-Parametros:  Código del Pedido
-Valor de Retorno: Lista de Código de Producto,  Cantidad de Producto y Precio del Producto
+Pedido:
+  * Código de Pedido (Autogenerado)
+  * Fecha de Pedido(Fecha del sistema)
+  * Tipo de de Pago (Credito/Contado/letras/deposito en banco)
+  * Precio Total (Calculado)
+  * Detalle Pedido
+  * Cliente
+  * Descuento
 
+Detalle Pedido:
+  * Producto
+  * Cantidad
+
+Producto:
+  * Código
+  * Descripcion
+  * Precio
+  * Tipo
+  * Stock
+
+Cliente:
+  * Código de Cliente(Se obtienen los datos del cliente)
+  * Nombres Completos
+  * Direccion
+  * Teléfono
+  * DNI / RUC / Otro
+  * Tipo de Persona
+
+ b) Valor de Retorno
+    * Código de Pedido (Autogenerado)
+    * Fecha de entrega
+
+
+ 1.2 Consulta de Pedidos del Vendedor
+ 1.3 Consulta detalle de Pedido
 
 
 *Servicio de Consulta de Stock de Productos* 
 
 Operaciones
   * Consulta de productos:
-    * *Parametros:* código de tipo de producto.
+    * *Parametros:* tipo de producto.
     * *Valor de retorno:* Listado de productos en almacen.
 
   * Consulta de detalle de producto:
     * *Parametros:* código del producto
-    * *Valor de retorno:* 
-       Producto:
-         * Código
-         * Descripción
-         * Precio
-         * Tipo
-         * Stock
-
+    * *Valor de retorno:* Detalle del producto
 
 Consutla de Créditos
-Consulta de Linea de Credito
-Parametros:
-Entrada:Codigo Cliente
-
-Salida: Saldo Disponible
-
-
-
-Consulta de Deuda Vencida
-Parametros:
-Entrada:
-Codigo Cliente
-
-Salida: DocumentosPendientes
-
-DocumentosPendientes
---------------------
-* Tipo Documento
-* Numero Documento
-* Fecha Emision
-* Fecha Vencimiento
-* Dias Retraso
-* Moneda
-* Monto
-
+ - Consulta de línea de crédito
+ - Consulta de Deuda Vencida
 
 Cliente
  - Aplicativo Sistema de Gestion de Ventas
