@@ -1,3 +1,17 @@
-Nodos:
-Creditos y Cobranzas
-       
+Los Servicios identificados por Nodo son los siguientes:
+
+Venta de Producto: 
+ - Registro de Pedido
+ - Consulta de Pedidos del Vendedor
+ - Consulta detalle de Pedido
+
+Stock de Productos:
+ - Consulta de Producto
+ - Sincronizar Stock con BD Central
+
+Consutla de Créditos
+ - Consulta de línea de crédito
+ - Consulta de Deuda Vencida
+
+Cliente
+ - Aplicativo Sistema de Gestion de Ventas
