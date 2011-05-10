@@ -5,6 +5,7 @@ Venta de Producto:
  - Consulta de Pedidos del Vendedor
  - Consulta detalle de Pedido
 
+
 *Servicio de Consulta de Stock de Productos* 
 
 Operaciones
