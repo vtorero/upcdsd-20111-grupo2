@@ -53,6 +53,16 @@ Representa el detalle de cada pedido por producto a solicitar.
   * Cantidad
 `
 
+*Orden de compra*
+
+Representa la orden de compra generado al registrar un nuevo pedido.
+
+*Propiedades*
+
+  * Código de venta
+  * Fecha de venta
+`
+
 *Documento Pendiente*
 
 Representa el documento que contiene la deuda vencidad.
