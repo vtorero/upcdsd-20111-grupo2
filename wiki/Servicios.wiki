@@ -35,7 +35,7 @@ Cliente:
   * DNI / RUC / Otro
   * Tipo de Persona
 
- b) Valor de Retorno
+b) Valor de Retorno
     * Código de Pedido (Autogenerado)
     * Fecha de entrega
 
