@@ -15,7 +15,7 @@ Operaciones
 
   * Consulta de detalle de producto:
     * *Parametros:* código del producto
-    * *Valor de retorno:* Detalle del producto
+    * *Valor de retorno:* Producto
 
 Consutla de Créditos
  - Consulta de línea de crédito
