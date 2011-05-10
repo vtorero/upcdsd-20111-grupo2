@@ -1,3 +1,11 @@
+= Servicios =
+
+*Servicio de pedidos*
+
+Operaciones
+  * Registro de Pedido
+    * *Parámetros:* [Entidades]
+
 Los Servicios identificados por Nodo son los siguientes:
 
 1 *Venta de Producto:*
