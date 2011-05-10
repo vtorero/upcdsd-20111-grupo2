@@ -41,7 +41,7 @@ Codigo Cliente
 Salida: DocumentosPendientes
 
 DocumentosPendientes
----------------------------------
+--------------------
 Tipo Documento
 Numero Documento
 Fecha Emision
