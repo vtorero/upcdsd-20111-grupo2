@@ -17,6 +17,7 @@ Operaciones
     * *Parametros:* código del producto
     * *Valor de retorno:* 
        Producto:
+         * Código
          * Descripción
          * Precio
          * Tipo
