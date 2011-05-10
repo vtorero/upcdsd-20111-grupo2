@@ -1,5 +1,5 @@
 Los Servicios identificados por Nodo son los siguientes:
-1 *Venta de Producto:*
+1*Venta de Producto:*
 
 Operaciones
  1.1 *Registro de Pedido*
@@ -43,7 +43,7 @@ Cliente:
  1.3 Consulta detalle de Pedido
 
 
-*Servicio de Consulta de Stock de Productos* 
+2*Servicio de Consulta de Stock de Productos* 
 
 Operaciones
   * Consulta de productos:
