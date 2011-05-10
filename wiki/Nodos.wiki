@@ -2,7 +2,16 @@
 
 Los Nodos identificados para el caso de negocios descrito:
 
-Nodo 1: Venta de Producto
+*Nodo 1*: Venta de Producto
+Descripción: Este nodo permite al vendedor realizar el registro de la venta, así como la consultas del detalle del pedido realizado y consulta de los pedidos del vendedor.
+
 Nodo 2: Stock de Producto
+Descripción: 
+
+
 Nodo 3: Consulta de Crédito
+Descripción: 
+
+
 Nodo 4: Cliente
+Descripción: 
