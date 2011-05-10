@@ -5,9 +5,16 @@ Venta de Producto:
  - Consulta de Pedidos del Vendedor
  - Consulta detalle de Pedido
 
-Stock de Productos:
- - Consulta de Producto
- - Sincronizar Stock con BD Central
+*Servicio de Consulta de Stock de Productos* 
+
+Operaciones
+  * Consulta de productos:
+    * *Parametros:*
+    * *Valor de retorno:* Listado de productos
+
+  * Consulta de detalle de producto:
+    * *Parametros:* código del producto
+    * *Valor de retorno:* Detalle del producto
 
 Consutla de Créditos
  - Consulta de línea de crédito
