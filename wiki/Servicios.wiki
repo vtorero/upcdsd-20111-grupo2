@@ -5,39 +5,39 @@ Los Servicios identificados por Nodo son los siguientes:
 Operaciones
  1.1 *Registro de Pedido*
 
-a) *Parámetros*
+a) *Parámetros:* Pedido
 
-Pedido:
-  * Código de Pedido (Autogenerado)
-  * Fecha de Pedido(Fecha del sistema)
-  * Tipo de de Pago (Credito/Contado/letras/deposito en banco)
-  * Precio Total (Calculado)
-  * Detalle Pedido
-  * Cliente
-  * Descuento
+b) *Valor de Retorno:* Codigo de Venta, Fecha de Pedido
 
-Detalle Pedido:
-  * Producto
-  * Cantidad
+c) *Detalle de Parámetros:*
 
-Producto:
-  * Código
-  * Descripcion
-  * Precio
-  * Tipo
-  * Stock
+ * Pedido:
+   ** Código de Pedido (Autogenerado)
+   ** Fecha de Pedido(Fecha del sistema)
+   ** Tipo de de Pago (Credito/Contado/letras/deposito en banco)
+   ** Precio Total (Calculado)
+   ** Detalle Pedido
+   ** Cliente
+   ** Descuento
 
-Cliente:
-  * Código de Cliente(Se obtienen los datos del cliente)
-  * Nombres Completos
-  * Direccion
-  * Teléfono
-  * DNI / RUC / Otro
-  * Tipo de Persona
+ * Detalle Pedido:
+   ** Producto
+   ** Cantidad
 
-b) *Valor de Retorno*
-    * Código de Pedido (Autogenerado)
-    * Fecha de entrega
+ * Producto:
+   ** Código
+   ** Descripcion
+   ** Precio
+   ** Tipo
+   ** Stock
+
+ * Cliente:
+   ** Código de Cliente(Se obtienen los datos del cliente)
+   ** Nombres Completos
+   ** Dirección
+   ** Teléfono
+   ** DNI / RUC / Otro
+   ** Tipo de Persona
 
 
  1.2 Consulta de Pedidos del Vendedor
