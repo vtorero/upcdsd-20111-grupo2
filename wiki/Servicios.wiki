@@ -1,9 +1,18 @@
 Los Servicios identificados por Nodo son los siguientes:
 
-Venta de Producto: 
- - Registro de Pedido
- - Consulta de Pedidos del Vendedor
- - Consulta detalle de Pedido
+*Venta de Producto*
+ - Registro de Pedido: Registra las ordenes capturadas por los vendedores, para ello es necesario registrar la información del cliente y los productos que solicita.
+Parametros: Lista de Código de Cliente, Código de Producto y Cantidad de Producto
+Valor de Retorno: Código de Pedido y Monto del Pedido
+
+ - Consulta de Pedidos del Vendedor:Devuelve los pedidos generados por el vendedor
+Parametros: Código de Vendedor, Rango de fecha de pedido
+Valor de Retorno: Lista de Códigos de Pedidos y Monto del Pedido.
+
+ - Consulta detalle de Pedido:Listado del detalle del Pedido
+Parametros:  Código del Pedido
+Valor de Retorno: Lista de Código de Producto,  Cantidad de Producto y Precio del Producto
+
 
 
 *Servicio de Consulta de Stock de Productos* 
