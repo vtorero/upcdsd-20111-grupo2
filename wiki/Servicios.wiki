@@ -4,7 +4,7 @@
 
 Operaciones
   * Registro de Pedido
-    * *Parámetros:* [Entidades#Pedido]
+    * *Parámetros:* [Entidades Pedido]
 
 Los Servicios identificados por Nodo son los siguientes:
 
