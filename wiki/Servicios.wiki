@@ -5,7 +5,7 @@ Los Servicios identificados por Nodo son los siguientes:
 Operaciones
  1.1 *Registro de Pedido*
 
-a) Parámetros
+a) *Parámetros*
 
 Pedido:
   * Código de Pedido (Autogenerado)
@@ -35,7 +35,7 @@ Cliente:
   * DNI / RUC / Otro
   * Tipo de Persona
 
-b) Valor de Retorno
+b) *Valor de Retorno*
     * Código de Pedido (Autogenerado)
     * Fecha de entrega
 
