@@ -71,9 +71,33 @@ Operaciones
          * Tipo
          * Stock
 
-Consutla de Créditos
- - Consulta de línea de crédito
- - Consulta de Deuda Vencida
+Consulta de Creditos
+
+Consulta de Linea de Credito
+
+Parametros:
+Entrada:Codigo Cliente
+
+Salida: Saldo Disponible
+
+
+
+Consulta de Deuda Vencida
+
+Parametros:
+Entrada:
+Codigo Cliente
+
+Salida: DocumentosPendientes
+
+DocumentosPendientes.
+* Tipo Documento
+* Numero Documento
+* Fecha Emision
+* Fecha Vencimiento
+* Dias Retraso
+* Moneda
+* Monto
 
 Cliente
  - Aplicativo Sistema de Gestion de Ventas
