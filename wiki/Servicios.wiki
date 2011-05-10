@@ -10,7 +10,7 @@ Venta de Producto:
 
 Operaciones
   * Consulta de productos:
-    * *Parametros:* ninguno.
+    * *Parametros:* tipo de producto.
     * *Valor de retorno:* Listado de productos en almacen.
 
   * Consulta de detalle de producto:
