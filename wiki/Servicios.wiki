@@ -27,11 +27,9 @@ Operaciones
 Consutla de Créditos
 Consulta de Linea de Credito
 Parametros:
-Entrada:
-Codigo Cliente
+Entrada:Codigo Cliente
 
-Salida
-Saldo Disponible
+Salida: Saldo Disponible
 
 
 
