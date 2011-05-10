@@ -42,12 +42,14 @@ Salida: DocumentosPendientes
 
 DocumentosPendientes
 --------------------
-Tipo Documento
-Numero Documento
-Fecha Emision
-Fecha Vencimiento
-Dias Retraso
-Moneda
-Monto
+* Tipo Documento
+* Numero Documento
+* Fecha Emision
+* Fecha Vencimiento
+* Dias Retraso
+* Moneda
+* Monto
+
+
 Cliente
  - Aplicativo Sistema de Gestion de Ventas
