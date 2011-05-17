@@ -1,6 +1,8 @@
 package pe.edu.upc.dsd.ws;
 
 
+import java.util.List;
+
 import junit.framework.Assert;
 
 import org.junit.Test;
@@ -27,5 +29,11 @@ public class ProductoTest {
 		Assert.assertEquals("P001", producto.getCodigo());
 	}
 	
+	@Test
+	public void testObtenerListaProducto()
+	{
+		List<Producto> productos  = productoService.obtenerListaProducto("Accesorios");
+		Assert.assertEquals(3, productos.size());
+	}
 
 }
