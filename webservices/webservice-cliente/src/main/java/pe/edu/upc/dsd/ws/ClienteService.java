@@ -1,5 +1,6 @@
 package pe.edu.upc.dsd.ws;
 
+import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import pe.edu.upc.dsd.ws.bean.Cliente;
@@ -11,5 +12,5 @@ import pe.edu.upc.dsd.ws.bean.Cliente;
 @WebService
 public interface ClienteService 
 {
-	public Cliente obtenerCliente(String codigo);
+	public Cliente obtenerCliente(@WebParam(name="codigo") String codigo);
 }
