@@ -3,7 +3,7 @@
 	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd                                                  http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 	
-	<jaxws:client id="productoClient" serviceName="ProductoServiceImpl"
+	<jaxws:client id="productoServiceClient" serviceName="ProductoServiceImpl"
 		serviceClass="pe.edu.upc.dsd.ws.ProductoService" address="http://localhost:8080/webservice-producto/ProductoService" />
-		
+
 </beans>
