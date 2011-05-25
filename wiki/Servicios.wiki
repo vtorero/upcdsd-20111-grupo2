@@ -13,6 +13,10 @@ Operaciones
     * *Parámetros de entrada:* código del vendedor
     * *Parámetros de salida:* Listado de [Entidades Pedido]
 
+  * Consulta de cliente
+    * *Descripción:* permite la consulta de la información de un cliente.
+    * *Parámetros de entrada:* código del cliente (DNI)
+    * *Parámetros de salida:* [Entidades Cliente]
 
 *Servicio de productos*
 
@@ -35,11 +39,3 @@ Operaciones
     * *Parámetros de entrada:* código del cliente
     * *Parámetros de salida:* Listado de [Entidades Documento Pendiente]
 `
-
-*Servicio de consulta de clientes*
-
-Operaciones
-  * Consulta de cliente
-    * *Descripción:* permite la consulta de la información de un cliente.
-    * *Parámetros de entrada:* código del cliente (DNI)
-    * *Parámetros de salida:* [Entidades Cliente]
