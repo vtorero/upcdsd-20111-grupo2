@@ -13,11 +13,6 @@ Operaciones
     * *Parámetros de entrada:* código del vendedor
     * *Parámetros de salida:* Listado de [Entidades Pedido]
 
-  * Consulta de detalle de pedido
-    * *Descripción:* permite la consulta del detalle de un pedido especifico.
-    * *Parámetros de entrada:* código del pedido
-    * *Parámetros de saluda:* [Entidades Pedido]
-`
 
 *Servicio de productos*
 
@@ -26,12 +21,6 @@ Operaciones
     * *Descripción:* permite la consulta de productos por categoria.
     * *Parámetros de entrada:* código de tipo de producto
     * *Parámetros de salida:* Listado de [Entidades Producto]
-
-  * Consulta de detalle de producto
-    * *Descripción:* permite la consulta del detalle de un producto.
-    * *Parámetros de entrada:* código del producto
-    * *Parámetros de salida:* [Entidades Producto]
-`
 
 *Servicio de consulta de créditos*
 
