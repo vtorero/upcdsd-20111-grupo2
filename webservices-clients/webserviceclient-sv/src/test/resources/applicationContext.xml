@@ -5,5 +5,8 @@
 	
 	<jaxws:client id="productoServiceClient" serviceName="ProductoServiceImpl"
 		serviceClass="pe.edu.upc.dsd.ws.ProductoService" address="http://localhost:8080/webservice-producto/ProductoService" />
+	
+	<jaxws:client id="finanzasServiceClient" serviceName="FinanzasServiceImpl"
+		serviceClass="pe.edu.upc.dsd.ws.FinanzasService" address="http://localhost:8080/webservice-finanzas/FinanzasService" />
 
 </beans>
