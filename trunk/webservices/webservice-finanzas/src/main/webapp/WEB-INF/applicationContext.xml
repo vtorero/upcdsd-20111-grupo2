@@ -7,9 +7,9 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-    <!--Modificar con los servicios implementas 
-    <bean id="productoService" class="pe.edu.upc.dsd.ws.ProductoServiceImpl" />
-	<jaxws:endpoint id="productoServiceEndpoint" implementor="#productoService"
-		address="/ProductoService" /> -->
+    
+    <bean id="finanzasService" class="pe.edu.upc.dsd.ws.FinanzasServiceImpl" />
+	<jaxws:endpoint id="finanzasServiceEndpoint" implementor="#finanzasService"
+		address="/FinanzasService" />
 
 </beans>
