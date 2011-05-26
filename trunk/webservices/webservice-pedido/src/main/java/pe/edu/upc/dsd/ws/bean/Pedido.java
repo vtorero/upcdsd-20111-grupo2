@@ -1,65 +1,141 @@
 package pe.edu.upc.dsd.ws.bean;
 
-public class Pedido {
-	
-	private String codigo; 
-	public String getCodigo() {
-		return codigo;
-	}
+import java.util.ArrayList;
+import java.util.List;
 
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+public class Pedido
+{
 
-	public String getFecha() {
-		return fecha;
-	}
+    private String codigo;
 
-	public void setFecha(String fecha) {
-		this.fecha = fecha;
-	}
+    private String fecha;
 
-	public String getTipoPago() {
-		return tipoPago;
-	}
+    private String tipoPago;
 
-	public void setTipoPago(String tipoPago) {
-		this.tipoPago = tipoPago;
-	}
+    private Cliente cliente;
 
-	public String getCliente() {
-		return cliente;
-	}
+    private ArrayList<Producto> productos;
 
-	public void setCliente(String cliente) {
-		this.cliente = cliente;
-	}
+    private double descuento;
 
-	public Integer getDescuento() {
-		return descuento;
-	}
+    private double total;
 
-	public void setDescuento(Integer descuento) {
-		this.descuento = descuento;
-	}
+    /**
+     * @return the codigo
+     */
+    public String getCodigo()
+    {
+        return codigo;
+    }
 
-	public Integer getTotal() {
-		return total;
-	}
+    /**
+     * @param codigo
+     *            the codigo to set
+     */
+    public void setCodigo(String codigo)
+    {
+        this.codigo = codigo;
+    }
 
-	public void setTotal(Integer total) {
-		this.total = total;
-	}
+    /**
+     * @return the fecha
+     */
+    public String getFecha()
+    {
+        return fecha;
+    }
 
-	private String fecha; 
-	private String tipoPago; 
-	private String cliente; 
-	//private Detalle detallePedidopedido; 
-	private Integer descuento; 
-	private Integer  total;
-	
-	public void Pedido (String codigo) {
-		this.codigo = codigo;
-	}
+    /**
+     * @param fecha
+     *            the fecha to set
+     */
+    public void setFecha(String fecha)
+    {
+        this.fecha = fecha;
+    }
 
+    /**
+     * @return the tipoPago
+     */
+    public String getTipoPago()
+    {
+        return tipoPago;
+    }
+
+    /**
+     * @param tipoPago
+     *            the tipoPago to set
+     */
+    public void setTipoPago(String tipoPago)
+    {
+        this.tipoPago = tipoPago;
+    }
+
+    /**
+     * @return the cliente
+     */
+    public Cliente getCliente()
+    {
+        return cliente;
+    }
+
+    /**
+     * @param cliente
+     *            the cliente to set
+     */
+    public void setCliente(Cliente cliente)
+    {
+        this.cliente = cliente;
+    }
+
+    /**
+     * @return the productos
+     */
+    public ArrayList<Producto> getProductos()
+    {
+        return productos;
+    }
+
+    /**
+     * @param productos
+     *            the productos to set
+     */
+    public void setProductos(ArrayList<Producto> productos)
+    {
+        this.productos = productos;
+    }
+
+    /**
+     * @return the descuento
+     */
+    public double getDescuento()
+    {
+        return descuento;
+    }
+
+    /**
+     * @param descuento
+     *            the descuento to set
+     */
+    public void setDescuento(double descuento)
+    {
+        this.descuento = descuento;
+    }
+
+    /**
+     * @return the total
+     */
+    public double getTotal()
+    {
+        return total;
+    }
+
+    /**
+     * @param total
+     *            the total to set
+     */
+    public void setTotal(double total)
+    {
+        this.total = total;
+    }
 }
