@@ -3,6 +3,7 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.jws.WebService;
 import pe.edu.upc.dsd.ws.bean.DocumentoPendiente;
+import pe.edu.upc.dsd.ws.bean.LineaCreditoDisponible;
 
 @WebService(endpointInterface = "pe.edu.upc.dsd.ws.FinanzasService")
 public class FinanzasServiceImpl implements  FinanzasService{
@@ -46,7 +47,8 @@ public class FinanzasServiceImpl implements  FinanzasService{
     @Override
     public double obtenerLineaCredito(String codigo)
     {
-        return 8000.00;
+        LineaCreditoDisponible Linea = new LineaCreditoDisponible();        
+    	return 8000.00;
     }
 
 }
