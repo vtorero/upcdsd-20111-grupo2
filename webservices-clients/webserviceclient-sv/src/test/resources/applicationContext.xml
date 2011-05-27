@@ -8,5 +8,8 @@
 
     <jaxws:client id="pedidoServiceClient" serviceName="PedidoServiceImpl"
       serviceClass="pe.edu.upc.dsd.ws.PedidoService" address="http://localhost:8080/webservice-pedido/PedidoService" />
+
+    <jaxws:client id="finanzasServiceClient" serviceName="FinanzasServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.FinanzasService" address="http://localhost:8080/webservice-finanzas/FinanzasService" />
     
 </beans>
