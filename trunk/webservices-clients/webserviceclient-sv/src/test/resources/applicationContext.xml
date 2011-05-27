@@ -11,5 +11,8 @@
 
     <jaxws:client id="finanzasServiceClient" serviceName="FinanzasServiceImpl"
       serviceClass="pe.edu.upc.dsd.ws.FinanzasService" address="http://localhost:8080/webservice-finanzas/FinanzasService" />
+      
+    <jaxws:client id="almacenServiceClient" serviceName="AlmacenServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.AlmacenService" address="http://localhost:8080/webservice-almacen/AlmacenService" />
     
 </beans>
