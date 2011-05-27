@@ -63,4 +63,22 @@ public class PedidoServiceImpl implements PedidoService
 
         return nroPedido;
     }
+    
+    @Override
+    public Cliente consultarCliente(String codigoCliente)
+    {
+
+        Cliente cliente = new Cliente();
+        cliente.setCodigo("1");
+        cliente.setNombre("Carolina");
+        cliente.setApellidoPaterno("Romero");
+        cliente.setApellidoMaterno("Pizarro");
+        cliente.setDireccion("Alameda los misioneros 664");
+        cliente.setTelefono("5752045");
+        cliente.setTipoPersona("1");        
+
+        return cliente;
+    }
+    
+    
 }
