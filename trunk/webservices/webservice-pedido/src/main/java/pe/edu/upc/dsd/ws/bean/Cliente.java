@@ -1,6 +1,7 @@
 package pe.edu.upc.dsd.ws.bean;
 
-public class Cliente {
+public class Cliente
+{
 	private String codigo;
 
 	private String nombre;
