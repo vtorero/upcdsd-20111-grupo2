@@ -15,4 +15,7 @@
     <jaxws:client id="almacenServiceClient" serviceName="AlmacenServiceImpl"
       serviceClass="pe.edu.upc.dsd.ws.AlmacenService" address="http://localhost:8080/webservice-almacen/AlmacenService" />
     
+    <jaxws:client id="clienteServiceClient" serviceName="ClienteServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.ClienteService" address="http://localhost:8080/webservice-cliente/ClienteService" />
+      
 </beans>
