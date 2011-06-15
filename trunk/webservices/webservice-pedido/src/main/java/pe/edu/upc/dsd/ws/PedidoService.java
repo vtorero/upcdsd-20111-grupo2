@@ -4,7 +4,6 @@ import javax.jws.WebParam;
 import javax.jws.WebService;
 
 import pe.edu.upc.dsd.ws.bean.Pedido;
-import pe.edu.upc.dsd.ws.bean.Cliente;
 
 @WebService
 public interface PedidoService
@@ -19,14 +18,5 @@ public interface PedidoService
      * @param pedido
      * @return
      */
-    public String registrarPedido(@WebParam(name = "pedido") Pedido pedido);
-    
-    
-    /**
-     * @param codigoCliente
-     * @return
-     */
-    public Cliente consultarCliente(@WebParam(name = "codigoCliente") String codigoCliente);
-    
-    
+    public String registrarPedido(@WebParam(name = "pedido") Pedido pedido);    
 }
