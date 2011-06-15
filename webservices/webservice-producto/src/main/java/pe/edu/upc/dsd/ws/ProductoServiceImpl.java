@@ -7,10 +7,6 @@ import javax.jws.WebService;
 
 import pe.edu.upc.dsd.ws.bean.Producto;
 
-/**
- * @author andres
- * 
- */
 @WebService(endpointInterface = "pe.edu.upc.dsd.ws.ProductoService")
 public class ProductoServiceImpl implements ProductoService
 {  
