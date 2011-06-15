@@ -25,17 +25,17 @@ public class ProductoServiceTest {
 	@Test
 	public void testObtenerProducto()
 	{
-		Producto producto  = productoService.obtenerProducto("2");
-		Assert.assertEquals("2", producto.getCodigo());
+		Producto producto  = productoService.obtenerProducto("02");
+		Assert.assertEquals("02", producto.getCodigo());
 		Assert.assertEquals("LLANTAS HR21", producto.getDescripcion());
 		Assert.assertEquals(350.0, producto.getPrecio());
-		Assert.assertEquals("3", producto.getTipo());
+		Assert.assertEquals("03", producto.getTipo());
 	}
 	
 	@Test
 	public void testObtenerListaProducto()
 	{
-		List<Producto> productos  = productoService.obtenerListaProducto("2");
+		List<Producto> productos  = productoService.obtenerListaProducto("02");
 		{
 		    Assert.assertEquals(1, productos.size());
 		}
