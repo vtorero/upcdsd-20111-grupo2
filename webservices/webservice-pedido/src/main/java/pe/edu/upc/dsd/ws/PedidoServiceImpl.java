@@ -1,6 +1,7 @@
 package pe.edu.upc.dsd.ws;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.jws.WebService;
 
@@ -11,17 +12,45 @@ import pe.edu.upc.dsd.ws.bean.Producto;
 @WebService(endpointInterface = "pe.edu.upc.dsd.ws.PedidoService")
 public class PedidoServiceImpl implements PedidoService
 {
+	private List<Pedido> pedidos;
+	
+	public PedidoServiceImpl()
+	{
+		this.pedidos = getPedidosPrueba();
+	}
+	
     @Override
     public Pedido obtenerPedido(String codigo)
     {
+    	for (Pedido pedido : this.pedidos) 
+    	{
+			if(pedido.getCodigo().equals(codigo))
+			{
+				return pedido;
+			}
+		}
 
+        return null;
+    }
+
+    @Override
+    public String registrarPedido(Pedido pedido)
+    {
+    	this.pedidos.add(pedido);
+        return "VTA00" + this.pedidos.size();
+    }
+
+    private List<Pedido> getPedidosPrueba()
+    {
+    	List<Pedido> pedidosPrueba = new ArrayList<Pedido>();
+    	
         Pedido pedido = new Pedido();
-        pedido.setCodigo(codigo);
+        pedido.setCodigo("01");
         pedido.setFecha("16-05-2011");
         pedido.setTipoPago("Contado");
 
         Cliente cliente = new Cliente();
-        cliente.setCodigo("1");
+        cliente.setCodigo("01");
         cliente.setNombre("Carolina");
         cliente.setApellidoPaterno("Romero");
         cliente.setApellidoMaterno("Pizarro");
@@ -33,52 +62,28 @@ public class PedidoServiceImpl implements PedidoService
 
         ArrayList<Producto> listaProductos = new ArrayList<Producto>();
         Producto producto1 = new Producto();
-        producto1.setCodigo("1");
-        producto1.setDescripcion("Llantas");
-        producto1.setPrecio(20.50);
-        producto1.setTipo("Repuestos");
+        producto1.setCodigo("01");
+        producto1.setDescripcion("HONDA XR 125");
+        producto1.setPrecio(860.00);
+        producto1.setTipo("01");
 
         listaProductos.add(producto1);
 
         Producto producto2 = new Producto();
-        producto2.setCodigo("2");
-        producto2.setDescripcion("Timon");
-        producto2.setPrecio(29.50);
-        producto2.setTipo("Repuestos");
+        producto2.setCodigo("02");
+        producto2.setDescripcion("LLANTAS HR21");
+        producto2.setPrecio(350.00);
+        producto2.setTipo("03");
 
         listaProductos.add(producto2);
 
-        pedido.setDescuento(10.60);
-        pedido.setTotal(170.30);
+        pedido.setDescuento(0.00);
+        pedido.setTotal(2210.00);
         pedido.setProductos(listaProductos);
-
-        return pedido;
+    	
+        pedidosPrueba.add(pedido);
+        
+    	return pedidosPrueba;
     }
-
-    @Override
-    public String registrarPedido(Pedido pedido)
-    {
-        // Deberia registrar en BAse de Datos el Pedido Indicado
-        String nroPedido = "0K123456";
-
-        return nroPedido;
-    }
-    
-    @Override
-    public Cliente consultarCliente(String codigoCliente)
-    {
-
-        Cliente cliente = new Cliente();
-        cliente.setCodigo("1");
-        cliente.setNombre("Carolina");
-        cliente.setApellidoPaterno("Romero");
-        cliente.setApellidoMaterno("Pizarro");
-        cliente.setDireccion("Alameda los misioneros 664");
-        cliente.setTelefono("5752045");
-        cliente.setTipoPersona("1");        
-
-        return cliente;
-    }
-    
     
 }
