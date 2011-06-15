@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd 
+      http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+
+  <!-- webservice client para el servicio web de Clientes -->
+  <jaxws:client id="clienteService" 
+          serviceName="ClienteServiceImpl"
+          serviceClass="pe.edu.upc.dsd.service.ws.ClienteService"
+          address="http://localhost:8080/webservice-cliente/ClienteService"/>
+  
+  <!-- webservice client para el servicio web de productos -->
+  <jaxws:client id="productoService" 
+          serviceName="ProductoServiceImpl"
+          serviceClass="pe.edu.upc.dsd.service.ws.ProductoService"
+          address="http://localhost:8080/webservice-producto/ProductoService"/>
+
+  <!-- webservice client para el servicio web de pedidos -->
+  <jaxws:client id="pedidoService" 
+          serviceName="PedidoServiceImpl"
+          serviceClass="pe.edu.upc.dsd.service.ws.PedidoService"
+          address="http://localhost:8080/webservice-pedido/PedidoService"/>  
+
+  <!-- webservice client para el servicio web de finanzas -->
+  <jaxws:client id="finanzasService" 
+          serviceName="FinanzasServiceImpl"
+          serviceClass="pe.edu.upc.dsd.service.ws.FinanzasService"
+          address="http://localhost:8080/webservice-finanzas/FinanzasService"/>  
+
+  <!-- Service que se encargara de realizar las llamadas a los servicios web y mapear
+      los datos necesarios para la aplicacion -->
+  <bean id="service" class="pe.com.upc.dsd.service.impl.ServiceImpl" />
+
+</beans>
