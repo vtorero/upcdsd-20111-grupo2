@@ -13,6 +13,4 @@ public interface PedidoService {
 	
 	public String registrarPedido(@WebParam(name = "pedido") Pedido pedido);
 	
-	public Cliente consultarCliente(@WebParam(name = "codigoCliente") String codigoCliente);
-	
 }
