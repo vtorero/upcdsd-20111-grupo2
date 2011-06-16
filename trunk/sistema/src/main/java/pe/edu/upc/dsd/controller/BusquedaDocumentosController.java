@@ -1,6 +1,7 @@
 package pe.edu.upc.dsd.controller;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -9,19 +10,19 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import pe.edu.upc.dsd.service.Service;
+import pe.edu.upc.dsd.ws.bean.Cliente;
+import pe.edu.upc.dsd.ws.bean.DocumentoPendiente;
 
 public class BusquedaDocumentosController extends AbstractController 
 {
 	private static final Logger logger = Logger.getLogger(BusquedaDocumentosController.class);
 	
 	private static final String VISTA_BUSQUEDA_DOCUMENTOS = "ConsultaDocumentosPago";
-	private static final String VISTA_BUSQUEDA_PRODUCTOS = "ConsultaProductos";
-	private static final String VISTA_REGISTRO_PEDIDO = "RegistroPedido";
 	
 	private static final String PARAMETRO_ACCION = "accion";
-	private static final String PARAMETRO_CODIGO = "codigo";
 	
 	private static final String ACCION_BUSCAR = "buscar";
 	private static final String ACCION_SIGUIENTE = "siguiente";
@@ -36,18 +37,73 @@ public class BusquedaDocumentosController extends AbstractController
 		
 		if(esAccionBuscar(request))
 		{
+			List<DocumentoPendiente> documentos = buscarDocumentosPendientes(request);
+			Double lineaCredito = obtenerLineaCreditoCliente(request);
+			Double lineaDisponible = obtenerLineaDisponible(documentos, lineaCredito); 
 			
+			setAttributeToModel(request, "documentosPendientes", documentos);
+			setAttributeToModel(request, "lineaCredito", lineaCredito);
+			setAttributeToModel(request, "lineaDisponible", lineaDisponible);
+			
+			return new ModelAndView(VISTA_BUSQUEDA_DOCUMENTOS, getModel(request));
 		}
 		else if(esAccionSiguiente(request))
 		{
-			
+			return new ModelAndView(new RedirectView("buscarProducto.do"));
 		}
 		else if(esAccionAtras(request))
 		{
-			
+			return new ModelAndView(new RedirectView("buscarCliente.do"));
 		}
 		
 		return new ModelAndView(VISTA_BUSQUEDA_DOCUMENTOS);
+	}
+	
+	/**
+	 * @param request
+	 * @return
+	 */
+	private List<DocumentoPendiente> buscarDocumentosPendientes(HttpServletRequest request)
+	{
+		logger.debug("Realizando la busqueda de documentos pendientes...");
+		
+		Cliente cliente = (Cliente) getModel(request).get("clienteSeleccionado");		
+		List<DocumentoPendiente> documentos = service.obtenerDocumentosPendientes(cliente.getCodigo());
+
+		logger.debug("Cantidad de documentos pendientes encontrados para el cliente con codigo '" + cliente.getCodigo() + "': " + documentos.size());
+		
+		return documentos;
+	}
+	
+	/**
+	 * @param request
+	 * @return
+	 */
+	private Double obtenerLineaCreditoCliente(HttpServletRequest request)
+	{
+		logger.debug("Realizando la busqueda de documentos pendientes...");
+		
+		Cliente cliente = (Cliente) getModel(request).get("clienteSeleccionado");
+		double lineaCredito = service.obtenerLineaDeCredito(cliente.getCodigo());
+		
+		return new Double(lineaCredito);
+	}
+	
+	/**
+	 * @param documentos
+	 * @param lineaCredito
+	 * @return
+	 */
+	private Double obtenerLineaDisponible(List<DocumentoPendiente> documentos, double lineaCredito)
+	{
+		double acumulado = 0.0;
+		
+		for (DocumentoPendiente documentoPendiente : documentos) 
+		{
+			acumulado = acumulado + documentoPendiente.getMonto();
+		}
+		
+		return lineaCredito - acumulado;
 	}
 	
 	/**
@@ -67,7 +123,10 @@ public class BusquedaDocumentosController extends AbstractController
 		
 		if(model == null)
 		{
-			return new HashMap<String, Object>();
+			model = new HashMap<String, Object>();
+			request.getSession().setAttribute("model", model);
+			
+			return model;
 		}
 		
 		return model;
@@ -88,7 +147,7 @@ public class BusquedaDocumentosController extends AbstractController
 	 */
 	private boolean esAccionSiguiente(HttpServletRequest request)
 	{
-		return ACCION_SIGUIENTE.equals(request.getParameter(ACCION_SIGUIENTE));
+		return ACCION_SIGUIENTE.equals(request.getParameter(PARAMETRO_ACCION));
 	}
 	
 	/**
