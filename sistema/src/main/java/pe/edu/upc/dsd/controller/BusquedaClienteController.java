@@ -19,7 +19,7 @@ public class BusquedaClienteController extends AbstractController
 {
 	private static final Logger logger = Logger.getLogger(BusquedaClienteController.class);
 	
-	private static final String VISTA_BUSQUEDA_CLIENTES = "ConsultaCliente";
+	private static final String VISTA_BUSQUEDA_CLIENTES = "ConsultarCliente";
 	private static final String VISTA_CONSULTA_DOCUMENTOS = "ConsultaDocumentosPago";
 	
 	private static final String PARAMETRO_ACCION = "accion";
