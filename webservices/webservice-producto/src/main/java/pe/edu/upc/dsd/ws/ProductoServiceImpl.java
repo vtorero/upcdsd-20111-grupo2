@@ -84,10 +84,24 @@ public class ProductoServiceImpl implements ProductoService
     	producto4.setPrecio(860.00);
     	producto4.setTipo("02");
     	
+    	Producto producto5 = new Producto();
+    	producto5.setCodigo("05");
+    	producto5.setDescripcion("LLANTAS Z7G1");
+    	producto5.setPrecio(480.00);
+    	producto5.setTipo("03");
+
+    	Producto producto6 = new Producto();
+    	producto6.setCodigo("06");
+    	producto6.setDescripcion("TIMON T823");
+    	producto6.setPrecio(910.00);
+    	producto6.setTipo("02");
+    	
     	productos.add(producto1);
     	productos.add(producto2);
     	productos.add(producto3);
     	productos.add(producto4);
+    	productos.add(producto5);
+    	productos.add(producto6);
     	
     	return productos;
     }
