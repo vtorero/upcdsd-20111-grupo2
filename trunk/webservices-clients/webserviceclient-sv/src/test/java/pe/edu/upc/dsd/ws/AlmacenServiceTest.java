@@ -6,6 +6,8 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import pe.edu.upc.dsd.ws.bean.Stock;
+
 public class AlmacenServiceTest {
 	
 	private AlmacenService almacenService;
@@ -19,9 +21,9 @@ public class AlmacenServiceTest {
 	@Test
 	public void testObtenerStock()
 	{
-		int Stock  = almacenService.obtenerStock("01");
+		Stock stock  = almacenService.obtenerStock("01");
 		{
-		    Assert.assertEquals(100,Stock);
+		    Assert.assertEquals("100",stock.getStock());
 		}
 	}
 }
