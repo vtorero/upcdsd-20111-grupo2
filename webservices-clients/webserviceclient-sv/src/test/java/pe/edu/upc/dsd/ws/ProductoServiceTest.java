@@ -37,7 +37,7 @@ public class ProductoServiceTest {
 	{
 		List<Producto> productos  = productoService.obtenerListaProducto("02");
 		{
-		    Assert.assertEquals(1, productos.size());
+		    Assert.assertEquals(2, productos.size());
 		}
 	}
 
