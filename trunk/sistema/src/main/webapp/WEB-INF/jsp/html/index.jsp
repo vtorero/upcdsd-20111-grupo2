@@ -46,7 +46,7 @@ body {
 	</tr>
 	<tr>
 	  <td height="83" colspan="3" align="center"><p class="Estilo4 Estilo7">BIENVENIDOS A RTM</p>
-	    <p class="Estilo2 Estilo3">EMPRESA LIDER EN VENTA DE REPUESTOS </p></td>
+	    <p class="Estilo2 Estilo3">EMPRESA LíDER EN VENTA DE REPUESTOS </p></td>
 	  </tr>
 	<tr>
 	  <td height="4" colspan="2" valign="middle"><img src="../free_osCommerce_template/sources/html/images/spacer.gif" width="1" height="1"></td>
@@ -63,27 +63,11 @@ body {
         </tr>
         <tr>
           <td bgcolor="#FFFFCC"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td bgcolor="#FFFFCC"><a href="#"><span class="Estilo18">Consulta de Cliente</span></a></td>
+          <td bgcolor="#FFFFCC"><a href="ConsultarCliente.html"><span class="Estilo18">Registro de Pedido </span></a></td>
         </tr>
         <tr>
-          <td><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Productos</span></a></td>
-        </tr>
-        <tr>
-          <td><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Existencias</span></a></td>
-        </tr>
-        <tr>
-          <td><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Credito </span></a></td>
-        </tr>
-        <tr>
-          <td><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Pedidos</span></a></td>
-        </tr>
-        <tr>
-          <td><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Registro de Pedidos</span></a></td>
+          <td height="26"><img src="img/bullet1.gif" width="9" height="12"></td>
+          <td><a href="ConsultaExistencias.html"><span class="Estilo18">Consulta de Existencias</span></a></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -120,7 +104,7 @@ body {
       </table></td>
 	  <td width="80%" valign="top" bgcolor="#FFFFCC" class="footer"><table width="100%" border="0" bgcolor="#FFFFCC">
         <tr>
-          <td width="2%" rowspan="15"><img src="img/bg.jpg" width="1" height="396"></td>
+          <td width="2%" rowspan="12"><img src="img/bg.jpg" width="1" height="396"></td>
           <td width="98%"><span class="Estilo16">Bienvenido a RTM </span></td>
         </tr>
         <tr>
@@ -156,15 +140,7 @@ body {
         <tr>
           <td>&nbsp;</td>
         </tr>
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
-        </tr>
+        
       </table></td>
 	</tr>
 </table>
