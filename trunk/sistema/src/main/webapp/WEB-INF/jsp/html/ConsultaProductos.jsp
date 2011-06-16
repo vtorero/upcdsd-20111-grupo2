@@ -1,4 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@page import="pe.edu.upc.dsd.ws.bean.Producto"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
 <title>Untitled</title>
@@ -37,8 +41,29 @@ body {
 .Estilo75 {color: #FFFFFF; font-weight: bold; font-size: 11px; }
 .Estilo76 {font-size: 11px}
 -->
-</style></head>
+</style>
+
+<script type="text/javascript">
+
+	function buscar()
+	{
+		document.formularioProducto.accion.value = 'buscar';
+		document.formularioProducto.submit();
+	}
+	
+	function siguiente()
+	{
+		document.formularioProducto.accion.value = 'siguiente';
+		document.formularioProducto.submit();
+	}
+
+</script>
+
+</head>
 <body>
+<form name="formularioProducto" method="get" action="<%=request.getContextPath()%>/buscarProducto.do">
+<input type="hidden" name="accion" value=""/>
+
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -123,16 +148,15 @@ body {
               <th scope="row"><span class="Estilo27"></span></th>
               <td><span class="Estilo40"><strong>Criterio </strong>: </span></td>
               <td><label>
-                <select name="select">
-                  <option>- Seleccione -</option>
-                  <option>Codigo</option>
-                  <option>Categoria</option>
+                <select name="criterioBusqueda" id="criterioBusqueda" >
+                  <option value="0">Codigo</option>
+                  <option value="1">Categoria</option>
                 </select>
               </label></td>
               <td><span class="Estilo46">Ingrese Datos : </span></td>
-              <td><input name="txtNombre" type="text" id="txtNombre"></td>
+              <td><input id="codigoProducto" name="codigoProducto" type="text" ></td>
               <td><span class="Estilo27">
-                <input name="btnAgregarProductos22" type="submit" id="btnAgregarProductos22" value="Buscar">
+                <input name="btnAgregarProductos22" type="submit" id="btnBuscar" onclick="javascript:buscar();" value="Buscar">
               </span></td>
             </tr>
             <tr>
@@ -145,7 +169,8 @@ body {
             </tr>
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
-              <td colspan="5" rowspan="5"><table width="100%" border="1">
+              <td colspan="5" rowspan="5">
+              <table width="100%" border="1">
                   <tr>
                     <th width="6%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo75">N°</span></th>
                     <td width="34%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Descripcion</span></td>
@@ -154,38 +179,16 @@ body {
                     <td width="12%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Tipo</span></td>
                     <td width="13%" bgcolor="#CC0000" align="center" class="Estilo27"><span class="Estilo75">Seleccionar</span></td>
                   </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="txtNombre2" type="text" id="txtNombre2" size="3"></td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input type="checkbox" name="checkbox" value="checkbox"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="txtNombre22" type="text" id="txtNombre22" size="3"></td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input type="checkbox" name="checkbox2" value="checkbox"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="txtNombre23" type="text" id="txtNombre23" size="3"></td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input type="checkbox" name="checkbox3" value="checkbox"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="txtNombre24" type="text" id="txtNombre24" size="3"></td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input type="checkbox" name="checkbox4" value="checkbox"></td>
-                  </tr>
+                  <c:forEach items="${model.productos}" var="producto">
+	                  <tr>
+	                    <th class="Estilo27" scope="row">${producto.codigo}</th>
+	                    <td class="Estilo27">${producto.descripcion}</td>
+	                    <td class="Estilo27">${producto.precio}</td>
+	                    <td class="Estilo27"><input id="txtCantidad" name="txtCantidad" type="text" size="3"></td>
+	                    <td class="Estilo27">${producto.tipo}</td>
+	                    <td class="Estilo27" align="center"><input type="checkbox" name="checkbox" value="${producto.codigo}"></td>
+	                  </tr>                  	
+                  </c:forEach>
               </table></td>
             </tr>
             <tr>
@@ -221,7 +224,7 @@ body {
               <td><span class="Estilo27"></span></td>
               <td align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="38" height="37" border="0"></a></td>
               <td align="right">&nbsp;</td>
-              <td align="right"><a href="ConsultaTipoPago.jsp"><img src="img/flechaSiguiente.jpg" width="40" height="37" border="0"></a></td>
+              <td align="right"><a href="javascript:siguiente();"><img src="img/flechaSiguiente.jpg" width="40" height="37" border="0"></a></td>
             </tr>
             <tr>
               <th scope="row">&nbsp;</th>
@@ -266,8 +269,10 @@ body {
 
 </table>
 
+</form>
 
 </body>
+
 </html>
 
 
