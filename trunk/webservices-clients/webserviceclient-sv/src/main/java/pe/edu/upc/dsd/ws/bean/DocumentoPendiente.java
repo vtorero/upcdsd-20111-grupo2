@@ -4,6 +4,7 @@ import java.util.Date;
 
 public class DocumentoPendiente {
 	
+	private String codCliente;
 	private String numDocumento;
     private String tipoDocumento;
     private Date fechaEmision;
@@ -12,7 +13,17 @@ public class DocumentoPendiente {
     private String moneda;
     private double monto;
     
-    public String getNumDocumento() {
+    
+
+    
+    
+	public String getCodCliente() {
+		return codCliente;
+	}
+	public void setCodCliente(String codCliente) {
+		this.codCliente = codCliente;
+	}
+	public String getNumDocumento() {
 		return numDocumento;
 	}
 	public void setNumDocumento(String numDocumento) {
