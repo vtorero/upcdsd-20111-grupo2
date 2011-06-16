@@ -5,7 +5,7 @@
 <%@page import="java.util.List"%>
 <html>
 <head>
-<title>Untitled</title>
+<title>Sistema de Ventas RTM</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link href="img/stylesheet.css" rel="stylesheet" type="text/css">
