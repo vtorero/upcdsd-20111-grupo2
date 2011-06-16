@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import pe.edu.upc.dsd.service.Service;
 import pe.edu.upc.dsd.ws.bean.Producto;
@@ -63,12 +64,12 @@ public class BusquedaProductoController extends AbstractController
 			//TODO: Se debe implementar el obtener los codigos de los productos seleccionados
 			// y buscarlos en la lista traida por el servicio guardada en sesion
 			
-			return new ModelAndView(VISTA_TIPO_PAGO);
+			return new ModelAndView(new RedirectView("pedido.do"));
 		}
 		else if(esAccionAtras(request))
 		{
-			logger.debug("Redireccionando a la pagina anterior de busqueda de clientes...");
-			return new ModelAndView(VISTA_BUSQUEDA_DOCUMENTOS);
+			logger.debug("Redireccionando a la pagina anterior de busqueda de documentos...");
+			return new ModelAndView(new RedirectView("buscarDocumentos.do"));
 		}
 		
 		return new ModelAndView(VISTA_BUSQUEDA_PRODUCTOS);
