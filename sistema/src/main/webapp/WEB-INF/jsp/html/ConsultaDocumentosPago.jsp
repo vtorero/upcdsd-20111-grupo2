@@ -1,7 +1,10 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <html>
 <head>
-<title>Untitled</title>
+<title>Sistema de Ventas RTM</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link href="img/stylesheet.css" rel="stylesheet" type="text/css">
@@ -38,8 +41,29 @@ body {
 .Estilo55 {font-family: "Times New Roman", Times, serif}
 .Estilo58 {font-size: 11px; font-weight: bold; font-family: Arial, Helvetica, sans-serif; }
 -->
-</style></head>
+</style>
+
+<script type="text/javascript">
+	
+	function siguiente()
+	{
+		document.formularioDocumentos.accion.value = 'siguiente';
+		document.formularioDocumentos.submit();
+	}
+
+	function atras()
+	{
+		document.formularioDocumentos.accion.value = 'atras';
+		document.formularioDocumentos.submit();
+	}
+	
+</script>
+
+
+</head>
 <body>
+<form name="formularioDocumentos" method="get" action="<%=request.getContextPath()%>/buscarDocumentos.do">
+<input type="hidden" name="accion" value=""/>
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -124,11 +148,11 @@ body {
               <th scope="row">&nbsp;</th>
               <td><span class="Estilo27 Estilo54 Estilo40"><strong>Línea de Crédito:</strong></span></td>
               <td colspan="2"><span class="Estilo55"></span><span class="Estilo27"><span class="Estilo53">
-                <input name="txtLineaCredito" type="text" id="txtLineaCredito">
+                <input name="txtLineaCredito" type="text" id="txtLineaCredito" value="${model.lineaCredito}">
               </span></span></td>
               <td><span class="Estilo27 Estilo54 Estilo40"><strong>Disponible:</strong></span></td>
               <td><span class="Estilo53">
-                <input name="txtDisponible" type="text" id="txtDisponible">
+                <input name="txtDisponible" type="text" id="txtDisponible" value="${model.lineaDisponible}">
               </span></td>
             </tr>
             <tr>
@@ -144,54 +168,24 @@ body {
               <td colspan="5" rowspan="5"><table width="100%" border="1">
                   <tr>
                     <th width="4%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo52">N°</span></th>
+                    <td width="8%" bgcolor="#CC0000" align="center" class="Estilo27"><span class="Estilo52">Tipo Documento</span></td>
                     <td width="21%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Fecha Emision </span></td>
                     <td width="18%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Fecha Vencimiento </span></td>
                     <td width="10%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Dias Mora </span></td>
-                    <td width="13%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Importe Mora </span></td>
-                    <td width="17%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Importe Total </span></td>
                     <td width="9%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Moneda</span></td>
-                    <td width="8%" bgcolor="#CC0000" align="center" class="Estilo27"><span class="Estilo52">Ver</span></td>
+                    <td width="17%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Importe Total </span></td>
                   </tr>
-                  <tr>
-                    <th class="Estilo53" scope="row">&nbsp;</th>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo27" align="center"><img src="img/modificar.gif" width="18" height="21"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo53" scope="row">&nbsp;</th>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo27" align="center"><img src="img/modificar.gif" width="18" height="21"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo53" scope="row">&nbsp;</th>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo27" align="center"><img src="img/modificar.gif" width="18" height="21"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo53" scope="row">&nbsp;</th>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo53">&nbsp;</td>
-                    <td class="Estilo27" align="center"><img src="img/modificar.gif" width="18" height="21"></td>
-                  </tr>
+                  <c:forEach items="${model.documentosPendientes}" var="documento">
+	                 <tr>
+	                   <th class="Estilo53" scope="row">${documento.numDocumento}</th>
+	                   <th class="Estilo53" scope="row">${documento.tipoDocumento}</th>
+	                   <td class="Estilo53"><fmt:formatDate pattern="dd-MM-yyyy" value="${documento.fechaEmision}"/></td>
+	                   <td class="Estilo53"><fmt:formatDate pattern="dd-MM-yyyy" value="${documento.fechaVencimiento}"/></td>
+	                   <td class="Estilo53">${documento.diasRetraso}</td>
+	                   <td class="Estilo53">${documento.moneda}</td>
+	                   <td class="Estilo53">${documento.monto}</td>
+	                 </tr>                  
+                  </c:forEach>
               </table></td>
             </tr>
             <tr>
@@ -223,10 +217,10 @@ body {
               </tr>
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
-              <td><span class="Estilo27"><a href="index.jsp"><img src="img/flechaAtras.jpg" width="52" height="39" border="0"></a></td>
+              <td><span class="Estilo27"><a href="javascript:atras();"><img src="img/flechaAtras.jpg" width="52" height="39" border="0"></a></td>
               <td><span class="Estilo27"></span></td>
               <td colspan="2" align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="36" height="33" border="0"></a></td>
-              <td align="right"><a href="ConsultaProductos.jsp"><img src="img/flechaSiguiente.jpg" width="41" height="37" border="0"></a></td>
+              <td align="right"><a href="javascript:siguiente();"><img src="img/flechaSiguiente.jpg" width="41" height="37" border="0"></a></td>
             </tr>
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
@@ -259,19 +253,7 @@ body {
 </table>
 </td>
 </tr>
-
-
 </table>
-
-
+</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
