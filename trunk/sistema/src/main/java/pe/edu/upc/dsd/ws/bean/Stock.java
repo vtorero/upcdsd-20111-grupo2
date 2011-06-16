@@ -2,24 +2,25 @@ package pe.edu.upc.dsd.ws.bean;
 
 public class Stock {
 
-	private String codigo;
+	private String codigoProducto;
 	private String descripcion;
 	private String stock;
 	private String almacen;
 	
 	
+	public String getCodigoProducto() {
+		return codigoProducto;
+	}
+	public void setCodigoProducto(String codigoProducto) {
+		this.codigoProducto = codigoProducto;
+	}
 	public String getAlmacen() {
 		return almacen;
 	}
 	public void setAlmacen(String almacen) {
 		this.almacen = almacen;
 	}
-	public String getCodigo() {
-		return codigo;
-	}
-	public void setCodigo(String codigo) {
-		this.codigo = codigo;
-	}
+
 	public String getDescripcion() {
 		return descripcion;
 	}
