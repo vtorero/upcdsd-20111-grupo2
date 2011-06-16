@@ -14,17 +14,13 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import pe.edu.upc.dsd.service.Service;
-import pe.edu.upc.dsd.ws.bean.Cliente;
 import pe.edu.upc.dsd.ws.bean.Producto;
 
 public class BusquedaProductoController extends AbstractController 
 {
 	private static final Logger logger = Logger.getLogger(BusquedaProductoController.class);
-	
-	
-	private static final String VISTA_BUSQUEDA_DOCUMENTOS = "ConsultaDocumentosPago";
+
 	private static final String VISTA_BUSQUEDA_PRODUCTOS = "ConsultaProductos";
-	private static final String VISTA_TIPO_PAGO = "TipoPago";
 	
 	private static final String PARAMETRO_ACCION = "accion";
 	private static final String PARAMETRO_CRITERIO = "criterioBusqueda";
@@ -61,10 +57,7 @@ public class BusquedaProductoController extends AbstractController
 		else if(esAccionSiguiente(request))
 		{
 			logger.debug("Redireccionando a la pagina de Pedido...");
-			
-			//TODO: Se debe implementar el obtener los codigos de los productos seleccionados
-			// y buscarlos en la lista traida por el servicio guardada en sesion
-			
+
 			guardarProductosSeleccionados(request);
 			return new ModelAndView(new RedirectView("registrarPedido.do?accion=cargar"));
 
@@ -118,6 +111,9 @@ public class BusquedaProductoController extends AbstractController
 			for (int i = 0; i < seleccion.length; i++) {
 				String codigo = seleccion[i];
 				Producto productoSeleccionado = obtenerProductoSeleccionado(request, codigo);
+				String cantidadProducto = request.getParameter("cantidad".concat(productoSeleccionado.getCodigo()));
+				
+				productoSeleccionado.setCantidad(Integer.parseInt(cantidadProducto));
 				productosSeleccionados.add(productoSeleccionado);
 				
 			}
@@ -180,7 +176,7 @@ public class BusquedaProductoController extends AbstractController
 	 */
 	private boolean esAccionSiguiente(HttpServletRequest request)
 	{
-		return ACCION_SIGUIENTE.equals(request.getParameter(ACCION_SIGUIENTE));
+		return ACCION_SIGUIENTE.equals(request.getParameter(PARAMETRO_ACCION));
 	}
 	
 	/**
