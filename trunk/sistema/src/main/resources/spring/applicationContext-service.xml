@@ -6,29 +6,41 @@
   <!-- webservice client para el servicio web de Clientes -->
   <jaxws:client id="clienteService" 
           serviceName="ClienteServiceImpl"
-          serviceClass="pe.edu.upc.dsd.service.ws.ClienteService"
+          serviceClass="pe.edu.upc.dsd.ws.ClienteService"
           address="http://localhost:8080/webservice-cliente/ClienteService"/>
   
   <!-- webservice client para el servicio web de productos -->
   <jaxws:client id="productoService" 
           serviceName="ProductoServiceImpl"
-          serviceClass="pe.edu.upc.dsd.service.ws.ProductoService"
+          serviceClass="pe.edu.upc.dsd.ws.ProductoService"
           address="http://localhost:8080/webservice-producto/ProductoService"/>
 
   <!-- webservice client para el servicio web de pedidos -->
   <jaxws:client id="pedidoService" 
           serviceName="PedidoServiceImpl"
-          serviceClass="pe.edu.upc.dsd.service.ws.PedidoService"
+          serviceClass="pe.edu.upc.dsd.ws.PedidoService"
           address="http://localhost:8080/webservice-pedido/PedidoService"/>  
 
   <!-- webservice client para el servicio web de finanzas -->
   <jaxws:client id="finanzasService" 
           serviceName="FinanzasServiceImpl"
-          serviceClass="pe.edu.upc.dsd.service.ws.FinanzasService"
+          serviceClass="pe.edu.upc.dsd.ws.FinanzasService"
           address="http://localhost:8080/webservice-finanzas/FinanzasService"/>  
+
+  <!-- webservice client para el servicio web de finanzas -->
+  <jaxws:client id="almacenService" 
+          serviceName="AlmacenServiceImpl"
+          serviceClass="pe.edu.upc.dsd.ws.AlmacenService"
+          address="http://localhost:8080/webservice-almacen/AlmacenService"/>
 
   <!-- Service que se encargara de realizar las llamadas a los servicios web y mapear
       los datos necesarios para la aplicacion -->
-  <bean id="service" class="pe.com.upc.dsd.service.impl.ServiceImpl" />
+  <bean id="service" class="pe.com.upc.dsd.service.impl.ServiceImpl" >
+    <property name="clienteService" ref="clienteService" />
+    <property name="productoService" ref="productoService" />
+    <property name="pedidoService" ref="pedidoService" />
+    <property name="finanzasService" ref="finanzasService" />
+    <property name="almacenService" ref="almacenService" />
+  </bean>
 
 </beans>
