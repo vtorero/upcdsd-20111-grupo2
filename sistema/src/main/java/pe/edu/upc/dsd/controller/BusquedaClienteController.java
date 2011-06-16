@@ -45,8 +45,7 @@ public class BusquedaClienteController extends AbstractController
 		{
 			logger.debug("Redireccionando a la pagina de consulta de documentos...");
 			
-			//TODO: Se debera guardar en sesion unicamente el cliente seleccionado para su uso en lo que sigue del proceso.
-			
+			guardarClienteSeleccionado(request);
 			return new ModelAndView(VISTA_CONSULTA_DOCUMENTOS);
 		}
 		
@@ -77,6 +76,32 @@ public class BusquedaClienteController extends AbstractController
 		return clientes;
 	}
 	
+	private void guardarClienteSeleccionado(HttpServletRequest request)
+	{
+		String[] seleccion = request.getParameterValues("chkCliente");
+		
+		if(seleccion.length > 0)
+		{
+			String codigo = seleccion[0];
+			Cliente clienteSeleccionado = obtenerClienteSeleccionado(request, codigo);
+			setAttributeToModel(request, "clienteSeleccionado", clienteSeleccionado);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Cliente obtenerClienteSeleccionado(HttpServletRequest request, String codigo)
+	{
+		for (Cliente cliente : (List<Cliente>) getModel(request).get("clientes")) 
+		{
+			if(cliente.getCodigo().equals(codigo))
+			{
+				return cliente;
+			}
+		}
+		
+		return null;
+	}
+	
 	/**
 	 * @param request
 	 * @param name
@@ -84,6 +109,7 @@ public class BusquedaClienteController extends AbstractController
 	 */
 	private void setAttributeToModel(HttpServletRequest request, String name, Object value)
 	{
+		logger.debug("Guardando en sesion el objeto " + value + " con nombre '" + name + "'");
 		getModel(request).put(name, value);
 	}
 	
