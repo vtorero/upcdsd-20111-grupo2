@@ -30,7 +30,7 @@ body {
 .Estilo13 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
-.Estilo27 {font-family: Arial, Helvetica, sans-serif}
+.Estilo27 {font-family: Arial, Helvetica, sans-serif, font-size: 11px;}
 .Estilo44 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
 .Estilo53 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo54 {font-size: 11px}
