@@ -149,10 +149,10 @@ body {
               <td><span class="Estilo54">Criterio : </span></td>
               <td><label>
                 <select name="select">
-                  <option>Codigo</option>
+                  <option>DNI</option>
                 </select>
               </label></td>
-              <td><span class="Estilo54">Ingrese Datos: </span></td>
+              <td><span class="Estilo54">Ingrese DNI: </span></td>
               <td><input id="codigoCliente" name="codigoCliente" type="text" ></td>
               <td><span class="Estilo27">
                 <input name="btnBuscar" type="submit" id="btnBuscar" onclick="javascript:buscar();" value="Buscar">
