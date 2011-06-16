@@ -167,7 +167,7 @@ body {
               <th scope="row"><span class="Estilo27"></span></th>
               <td colspan="5" rowspan="5"><table width="100%" border="1">
                   <tr>
-                    <th width="4%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo52">N°</span></th>
+                    <td width="4%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo52">N°</span></td>
                     <td width="8%" bgcolor="#CC0000" align="center" class="Estilo27"><span class="Estilo52">Tipo Documento</span></td>
                     <td width="21%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Fecha Emision </span></td>
                     <td width="18%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Fecha Vencimiento </span></td>
@@ -177,8 +177,8 @@ body {
                   </tr>
                   <c:forEach items="${model.documentosPendientes}" var="documento">
 	                 <tr>
-	                   <th class="Estilo53" scope="row">${documento.numDocumento}</th>
-	                   <th class="Estilo53" scope="row">${documento.tipoDocumento}</th>
+	                   <td class="Estilo53" scope="row">${documento.numDocumento}</td>
+	                   <td class="Estilo53" scope="row">${documento.tipoDocumento}</td>
 	                   <td class="Estilo53"><fmt:formatDate pattern="dd-MM-yyyy" value="${documento.fechaEmision}"/></td>
 	                   <td class="Estilo53"><fmt:formatDate pattern="dd-MM-yyyy" value="${documento.fechaVencimiento}"/></td>
 	                   <td class="Estilo53">${documento.diasRetraso}</td>
