@@ -274,9 +274,6 @@ function atras()
                 <td><span class="Estilo48">Lista de Productos </span></td>
                 <td>&nbsp;</td>
                 <td>&nbsp;</td>
-                <td align="right"><span class="Estilo27">
-                  <input name="btnAgregarProductos" type="submit" id="btnAgregarProductos" value="Agregar Productos">
-                </span></td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
