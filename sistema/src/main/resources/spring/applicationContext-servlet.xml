@@ -21,7 +21,7 @@
     <property name="service" ref="service" />
   </bean>
 
-  <bean name="/consultarStock.do" class="pe.edu.upc.dsd.controller.BusquedaStockController" >
+  <bean name="/buscarStock.do" class="pe.edu.upc.dsd.controller.BusquedaStockController" >
     <property name="service" ref="service" />
   </bean>
   
