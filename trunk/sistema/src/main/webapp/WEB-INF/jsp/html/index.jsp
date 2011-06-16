@@ -34,6 +34,14 @@ body {
 }
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
+.Estilo19 {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+}
+.Estilo20 {
+	font-size: 12px;
+	font-weight: bold;
+}
 -->
 </style></head>
 <body>
@@ -46,7 +54,7 @@ body {
 	</tr>
 	<tr>
 	  <td height="83" colspan="3" align="center"><p class="Estilo4 Estilo7">BIENVENIDOS A RTM</p>
-	    <p class="Estilo2 Estilo3">EMPRESA LÃ­DER EN VENTA DE REPUESTOS </p></td>
+	    <p class="Estilo2 Estilo3">EMPRESA LIDER EN VENTA DE REPUESTOS </p></td>
 	  </tr>
 	<tr>
 	  <td height="4" colspan="2" valign="middle"><img src="../free_osCommerce_template/sources/html/images/spacer.gif" width="1" height="1"></td>
@@ -104,32 +112,38 @@ body {
       </table></td>
 	  <td width="80%" valign="top" bgcolor="#FFFFCC" class="footer"><table width="100%" border="0" bgcolor="#FFFFCC">
         <tr>
-          <td width="2%" rowspan="12"><img src="img/bg.jpg" width="1" height="396"></td>
-          <td width="98%"><span class="Estilo16">Bienvenido a RTM </span></td>
+          <td width="2%" rowspan="13"><img src="img/bg.jpg" width="1" height="396"></td>
+          <td width="98%"><span class="Estilo16">Área de ventas de RTM </span></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
+          <td><span class="Estilo16">¿Quiénes Somos? </span></td>
         </tr>
+        <tr>
+          <td><span class="Estilo19">Empresa dedicada a la venta de repuestos para maquinaria pesada y ligera contando con stock permanente y a precios cómodos. <br>
+  Actualmente esta consolidado como líder del sector (Minero-Agricultura-Pesca), y es reconocida como una TOP &quot;Mejores empresas del Perú&quot;, según estudios de opinión y Mercado. El valor principal de RTM <span class="Estilo20">&quot;El cliente es nuestra razón de existir.&quot;</span></span></td>
+        </tr>
+        
         <tr>
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
+          <td><span class="Estilo16">Misión</span></td>
+        </tr>
+        <tr>
+          <td><span class="Estilo19">Brindar un servicio excelente en el sector minero,agricultura, construción y pesca, donde se encuentre un requerimiento de repuestos, RTM, estará presente, garantizando profesionalidad y calidad del producto. Es el objetivo de RTM</span>. </td>
         </tr>
         <tr>
           <td>&nbsp;</td>
         </tr>
+        
         <tr>
-          <td>&nbsp;</td>
+          <td><span class="Estilo16">Visión</span></td>
         </tr>
         <tr>
-          <td>&nbsp;</td>
-        </tr>
-        <tr>
-          <td>&nbsp;</td>
+          <td><span class="Estilo19">Somos líderes en el mercado y buscamos expandirnos en el extranjero, brindando un óptimo servicio que satisface las necesidades de nuestros clientes, ofreciéndoles productos de calidad y de precios competitivos a través de nuestra red de ventas a nivel nacional</span></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -153,12 +167,3 @@ body {
 
 </body>
 </html>
-
-
-
-
-
-
-
-
-
