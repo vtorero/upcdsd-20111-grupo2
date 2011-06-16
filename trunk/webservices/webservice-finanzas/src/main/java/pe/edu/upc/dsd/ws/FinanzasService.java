@@ -15,7 +15,7 @@ public interface FinanzasService {
      * @param codigoCliente
 	 * @return List<DocumentoPendiente>
      */
-	public List<DocumentoPendiente> obtenerConsultaDeuda(@WebParam(name = "codigoCliente") String codigoCliente);
+	public List<DocumentoPendiente> getDocumentosPendientes(@WebParam(name = "codigoCliente") String codigoCliente);
 	
 	/**
      * Obtiene la consulta de la Línea de Credito del Cliente
