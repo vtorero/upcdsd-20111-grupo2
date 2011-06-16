@@ -25,13 +25,14 @@ public class BusquedaProductoController extends AbstractController
 	private static final String PARAMETRO_ACCION = "accion";
 	private static final String PARAMETRO_CRITERIO = "criterioBusqueda";
 	private static final String PARAMETRO_CODIGO = "codigoProducto";
+	private static final String PARAMETRO_CATEGORIA = "categoriaProducto";
 	
 	private static final String ACCION_BUSCAR = "buscar";
 	private static final String ACCION_SIGUIENTE = "siguiente";
 	private static final String ACCION_ATRAS = "atras";
 	
-	private static final String CRITERIO_CODIGO = "0";
-	private static final String CRITERIO_CATEGORIA = "1";
+	private static final String CRITERIO_CODIGO = "1";
+	private static final String CRITERIO_CATEGORIA = "2";
 	
 	private Service service;
 	
@@ -45,11 +46,8 @@ public class BusquedaProductoController extends AbstractController
 			logger.debug("Obtenemos el criterio de busqueda...");
 			
 			String criterioBusqueda = request.getParameter(PARAMETRO_CRITERIO);
-			String codigo = request.getParameter(PARAMETRO_CODIGO);
 			
-			logger.debug("Se realizara la busqueda con los siguientes parametros: criterio='" + criterioBusqueda + "', codigo='" + codigo + "'");
-			
-			List<Producto> productos = buscarProducto(criterioBusqueda, codigo);
+			List<Producto> productos = buscarProducto(request, criterioBusqueda);
 			setAttributeToModel(request, "productos", productos);
 			
 			return new ModelAndView(VISTA_BUSQUEDA_PRODUCTOS, getModel(request));
@@ -75,13 +73,15 @@ public class BusquedaProductoController extends AbstractController
 	 * @param codigo
 	 * @return
 	 */
-	private List<Producto> buscarProducto(String criterio, String codigo)
+	private List<Producto> buscarProducto(HttpServletRequest request, String criterio)
 	{
 		List<Producto> productos = new ArrayList<Producto>();
 		
 		if(CRITERIO_CODIGO.equals(criterio))
 		{
-			Producto producto = service.obtenerProducto(codigo);
+			logger.debug("Se realizara la busqueda con los siguientes parametros: criterio='" + criterio + "', codigo='" + request.getParameter(PARAMETRO_CODIGO) + "'");
+			
+			Producto producto = service.obtenerProducto(request.getParameter(PARAMETRO_CODIGO));
 			
 			if(producto != null)
 			{
@@ -90,7 +90,9 @@ public class BusquedaProductoController extends AbstractController
 		}
 		else if(CRITERIO_CATEGORIA.equals(criterio))
 		{
-			List<Producto> resultado = service.obtenerProductosPorCategoria(codigo);
+			logger.debug("Se realizara la busqueda con los siguientes parametros: criterio='" + criterio + "', codigo='" + request.getParameter(PARAMETRO_CATEGORIA) + "'");
+			
+			List<Producto> resultado = service.obtenerProductosPorCategoria(request.getParameter(PARAMETRO_CATEGORIA));
 			
 			if(resultado != null)
 			{
