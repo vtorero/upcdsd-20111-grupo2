@@ -45,6 +45,7 @@ public class ClienteServiceImpl implements ClienteService
         cliente1.setApellidoPaterno("Romero");
         cliente1.setApellidoMaterno("Pizarro");
         cliente1.setDireccion("Alameda los misioneros 664");
+        cliente1.setDocumentoIdentidad("1015987716");
         cliente1.setTelefono("5752045");
         cliente1.setTipoPersona("N");
 		
@@ -54,6 +55,7 @@ public class ClienteServiceImpl implements ClienteService
         cliente2.setApellidoPaterno("Deza");
         cliente2.setApellidoMaterno("Villacorta");
         cliente2.setDireccion("Psje. Octavio Bernal 120 dpto F");
+        cliente2.setDocumentoIdentidad("1042282207");
         cliente2.setTelefono("4602787");
         cliente2.setTipoPersona("N");        
         
@@ -63,6 +65,7 @@ public class ClienteServiceImpl implements ClienteService
         cliente3.setApellidoPaterno("Torres");
         cliente3.setApellidoMaterno("Diez");
         cliente3.setDireccion("Av. La Molina 432");
+        cliente3.setDocumentoIdentidad("1044091088");
         cliente3.setTelefono("4339812");
         cliente3.setTipoPersona("N");
         
