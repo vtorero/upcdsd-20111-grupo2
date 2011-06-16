@@ -21,7 +21,7 @@ public class ClienteServiceTest {
 	@Test
 	public void testConsultarCliente()
     {
-		Cliente cliente  =  clienteService.consultarCliente("01");
+		Cliente cliente  =  clienteService.consultarCliente("1015987716");
 		Assert.assertEquals("01", cliente.getCodigo());
 		Assert.assertEquals("Carolina", cliente.getNombre());
 		Assert.assertEquals("Romero", cliente.getApellidoPaterno());
