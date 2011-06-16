@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.apache.log4j.Logger;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.AbstractController;
+import org.springframework.web.servlet.view.RedirectView;
 
 import pe.edu.upc.dsd.service.Service;
 import pe.edu.upc.dsd.ws.bean.Cliente;
@@ -46,7 +47,7 @@ public class BusquedaClienteController extends AbstractController
 			logger.debug("Redireccionando a la pagina de consulta de documentos...");
 			
 			guardarClienteSeleccionado(request);
-			return new ModelAndView(VISTA_CONSULTA_DOCUMENTOS);
+			return new ModelAndView(new RedirectView("buscarDocumentos.do?accion=buscar"));
 		}
 		
 		return new ModelAndView(VISTA_BUSQUEDA_CLIENTES);
