@@ -53,8 +53,25 @@ body {
 	
 	function siguiente()
 	{
-		document.formularioProducto.accion.value = 'siguiente';
-		document.formularioProducto.submit();
+		var seleccion = "";
+		
+		for(var i=0; i < document.formularioProducto.chkProducto.length; i++)
+		{
+			if(document.formularioProducto.chkProducto[i].checked)
+			{
+				seleccion += document.formularioProducto.chkProducto[i].value + "\n";
+			}
+		}
+				
+		if(seleccion == "")
+		{
+			alert("Debe seleccionar al menos un producto para continuar.");
+			return;
+		}else
+		{
+			document.formularioProducto.accion.value = 'siguiente';
+			document.formularioProducto.submit();		
+		}
 	}
 
 	function atras()
@@ -165,7 +182,6 @@ body {
                 <input name="btnAgregarProductos22" type="submit" id="btnBuscar" onclick="javascript:buscar();" value="Buscar">
               </span></td>
             </tr>
-            
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
               <td><span class="Estilo40"><strong>Linea Disponible:</strong>: </span></td>
@@ -174,7 +190,6 @@ body {
               <td>&nbsp;</td>
               <td><span class="Estilo27"></span></td>
             </tr>
-            
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
               <td><span class="Estilo27"></span></td>
@@ -200,10 +215,22 @@ body {
 	                    <th class="Estilo27" scope="row">${producto.codigo}</th>
 	                    <td class="Estilo27">${producto.descripcion}</td>
 	                    <td class="Estilo27">${producto.precio}</td>
-	                    <td class="Estilo27"><input id="txtCantidad" name="txtCantidad" type="text" size="3"></td>
+	                    <td class="Estilo27">
+	                    	<select id="cantidad${producto.codigo}" name="cantidad${producto.codigo}">
+	                    		<option value="1">1</option>
+	                    		<option value="2">2</option>
+	                    		<option value="3">3</option>
+	                    		<option value="4">4</option>
+	                    		<option value="5">5</option>
+	                    		<option value="6">6</option>
+	                    		<option value="7">7</option>
+	                    		<option value="8">8</option>
+	                    		<option value="9">9</option>
+	                    		<option value="10">10</option>
+	                    	</select>
 	                    <td class="Estilo27">${producto.tipo}</td>
-	                    <td class="Estilo27" align="center"><input type="checkbox" name="checkbox" value="${producto.codigo}"></td>
-	                  </tr>                  	
+	                    <td class="Estilo27" align="center"><input type="checkbox" name="chkProducto" value="${producto.codigo}"></td>
+	                  </tr>
                   </c:forEach>
               </table></td>
             </tr>
@@ -281,21 +308,7 @@ body {
 </table>
 </td>
 </tr>
-
-
 </table>
-
 </form>
-
 </body>
-
 </html>
-
-
-
-
-
-
-
-
-
