@@ -7,8 +7,26 @@
 	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
 	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
 
-	<bean id="pedidoService" class="pe.edu.upc.dsd.ws.PedidoServiceImpl" />
-	<jaxws:endpoint id="pedidoServiceEndpoint" implementor="#pedidoService"
-		address="/PedidoService" />
+    <bean id="connectionFactory" class="org.apache.activemq.ActiveMQConnectionFactory">
+      <property name="brokerURL">
+        <value>tcp://localhost:61616</value>
+      </property>
+    </bean>
+    
+    <bean id="queueJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+      <property name="connectionFactory" ref="connectionFactory" />
+    </bean>
+
+    <bean id="messageSender" class="pe.edu.upc.dsd.jms.MessageSender">
+      <property name="jmsTemplate" ref="queueJmsTemplate" />
+      <property name="requestDestination" value="queue_pedidos" />
+    </bean>
+
+    <bean id="pedidoService" class="pe.edu.upc.dsd.ws.PedidoServiceImpl" >
+      <property name="messageSender" ref="messageSender" />
+    </bean>
+    
+    <jaxws:endpoint id="pedidoServiceEndpoint" implementor="#pedidoService"
+      address="/PedidoService" />
 
 </beans>
