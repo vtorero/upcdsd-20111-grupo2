@@ -126,12 +126,12 @@ body {
           <td bgcolor="#FFFFCC"><span class="Estilo17"></span></td>
         </tr>
         <tr>
-          <td height="23"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="<%=request.getContextPath() %>/buscarCliente.do"><span class="Estilo18">Registro de Pedidos</span></a></td>
+          <td bgcolor="#FFFFCC"><img src="img/bullet1.gif" width="9" height="12"></td>
+          <td bgcolor="#FFFFCC"><a href="<%=request.getContextPath() %>/buscarCliente.do"><span class="Estilo18">Registro de Pedido </span></a></td>
         </tr>
         <tr>
           <td height="26"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Existencias</span></a></td>
+          <td><a href="<%=request.getContextPath() %>/buscarStock.do"><span class="Estilo18">Consulta de Existencias</span></a></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
