@@ -13,5 +13,9 @@
     <property name="prefix" value="/WEB-INF/jsp/html/" />
     <property name="suffix" value=".jsp" />
   </bean>
-
+  
+  <bean name="/buscarCliente" class="pe.edu.upc.dsd.controller.BusquedaClienteController" >
+    <property name="service" ref="service" />
+  </bean>
+  
 </beans>
