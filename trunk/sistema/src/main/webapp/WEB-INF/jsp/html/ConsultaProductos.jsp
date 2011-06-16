@@ -35,6 +35,7 @@ body {
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
 .Estilo27 {font-family: Arial, Helvetica, sans-serif}
+.Estilo53 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo40 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo44 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
 .Estilo46 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; }
@@ -226,7 +227,7 @@ body {
               <td colspan="5" rowspan="5">
               <table width="100%" border="1">
                   <tr>
-                    <th width="6%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo75">N°</span></th>
+                    <td width="6%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo75">N°</span></td>
                     <td width="34%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Descripcion</span></td>
                     <td width="23%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Precio </span></td>
                     <td width="12%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Cantidad</span></td>
@@ -235,10 +236,10 @@ body {
                   </tr>
                   <c:forEach items="${model.productos}" var="producto">
 	                  <tr>
-	                    <th class="Estilo27" scope="row">${producto.codigo}</th>
-	                    <td class="Estilo27">${producto.descripcion}</td>
-	                    <td class="Estilo27">${producto.precio}</td>
-	                    <td class="Estilo27">
+	                    <td class="Estilo53" scope="row">${producto.codigo}</td>
+	                    <td class="Estilo53">${producto.descripcion}</td>
+	                    <td class="Estilo53">${producto.precio}</td>
+	                    <td class="Estilo53">
 	                    	<select id="cantidad${producto.codigo}" name="cantidad${producto.codigo}">
 	                    		<option value="1">1</option>
 	                    		<option value="2">2</option>
@@ -251,8 +252,8 @@ body {
 	                    		<option value="9">9</option>
 	                    		<option value="10">10</option>
 	                    	</select>
-	                    <td class="Estilo27">${producto.tipo}</td>
-	                    <td class="Estilo27" align="center"><input type="checkbox" name="chkProducto" value="${producto.codigo}"></td>
+	                    <td class="Estilo53">${producto.tipo}</td>
+	                    <td class="Estilo53" align="center"><input type="checkbox" name="chkProducto" value="${producto.codigo}"></td>
 	                  </tr>
                   </c:forEach>
               </table></td>
