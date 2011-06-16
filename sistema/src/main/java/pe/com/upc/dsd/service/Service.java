@@ -2,10 +2,10 @@ package pe.com.upc.dsd.service;
 
 import java.util.List;
 
-import pe.com.upc.dsd.model.Cliente;
-import pe.com.upc.dsd.model.DocumentoPendiente;
-import pe.com.upc.dsd.model.Pedido;
-import pe.com.upc.dsd.model.Producto;
+import pe.com.upc.dsd.ws.bean.Cliente;
+import pe.com.upc.dsd.ws.bean.DocumentoPendiente;
+import pe.com.upc.dsd.ws.bean.Pedido;
+import pe.com.upc.dsd.ws.bean.Producto;
 
 public interface Service 
 {

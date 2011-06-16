@@ -2,37 +2,32 @@ package pe.com.upc.dsd.service.impl;
 
 import java.util.List;
 
-import org.springframework.beans.factory.annotation.Autowired;
-
-import pe.com.upc.dsd.model.Cliente;
-import pe.com.upc.dsd.model.DocumentoPendiente;
-import pe.com.upc.dsd.model.Pedido;
-import pe.com.upc.dsd.model.Producto;
 import pe.com.upc.dsd.service.Service;
-import pe.com.upc.dsd.service.ws.ClienteService;
-import pe.com.upc.dsd.service.ws.FinanzasService;
-import pe.com.upc.dsd.service.ws.PedidoService;
-import pe.com.upc.dsd.service.ws.ProductoService;
+import pe.com.upc.dsd.ws.AlmacenService;
+import pe.com.upc.dsd.ws.ClienteService;
+import pe.com.upc.dsd.ws.FinanzasService;
+import pe.com.upc.dsd.ws.PedidoService;
+import pe.com.upc.dsd.ws.ProductoService;
+import pe.com.upc.dsd.ws.bean.Cliente;
+import pe.com.upc.dsd.ws.bean.DocumentoPendiente;
+import pe.com.upc.dsd.ws.bean.Pedido;
+import pe.com.upc.dsd.ws.bean.Producto;
 
 public class ServiceImpl implements Service 
 {
-	@Autowired
-	private ClienteService clientService;
-	@Autowired
+	private ClienteService clienteService;
 	private ProductoService productoService;
-	@Autowired
 	private PedidoService pedidoService;
-	@Autowired
 	private FinanzasService finanzasService;
+	private AlmacenService almacenService;
 	
 	/**
 	 * @see pe.com.upc.dsd.service.Service#obtenerCliente(java.lang.String)
 	 */
 	@Override
 	public Cliente obtenerCliente(String codigo) 
-	{
-		// TODO Auto-generated method stub
-		return null;
+	{		
+		return clienteService.consultarCliente(codigo);
 	}
 	
 	/**
@@ -41,18 +36,16 @@ public class ServiceImpl implements Service
 	@Override
 	public Pedido obtenerPedido(String codigo) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return pedidoService.obtenerPedido(codigo);
 	}
 	
 	/**
-	 * @see pe.com.upc.dsd.service.Service#registrarPedido(pe.com.upc.dsd.model.Pedido)
+	 * @see pe.com.upc.dsd.service.Service#registrarPedido(pe.com.upc.dsd.ws.bean.Pedido)
 	 */
 	@Override
 	public String registrarPedido(Pedido pedido) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return pedidoService.registrarPedido(pedido);
 	}
 	
 	/**
@@ -61,8 +54,7 @@ public class ServiceImpl implements Service
 	@Override
 	public Producto obtenerProducto(String codigo) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return productoService.obtenerProducto(codigo);
 	}
 	
 	/**
@@ -71,8 +63,7 @@ public class ServiceImpl implements Service
 	@Override
 	public List<Producto> obtenerProductosPorCategoria(String codigo) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return productoService.obtenerListaProducto(codigo);
 	}
 	
 	/**
@@ -81,8 +72,7 @@ public class ServiceImpl implements Service
 	@Override
 	public List<DocumentoPendiente> obtenerDocumentosPendientes(String codigo) 
 	{
-		// TODO Auto-generated method stub
-		return null;
+		return finanzasService.getDocumentosPendientes(codigo);
 	}
 	
 	/**
@@ -91,8 +81,7 @@ public class ServiceImpl implements Service
 	@Override
 	public double obtenerLineaDeCredito(String codigo) 
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return finanzasService.obtenerLineaCredito(codigo);
 	}
 	
 	/**
@@ -101,7 +90,46 @@ public class ServiceImpl implements Service
 	@Override
 	public int obtenerStock(String codigo) 
 	{
-		// TODO Auto-generated method stub
-		return 0;
+		return almacenService.obtenerStock(codigo);
+	}
+
+	/**
+	 * @param clientService the clientService to set
+	 */
+	public void setClienteService(ClienteService clienteService) 
+	{
+		this.clienteService = clienteService;
+	}
+
+	/**
+	 * @param productoService the productoService to set
+	 */
+	public void setProductoService(ProductoService productoService) 
+	{
+		this.productoService = productoService;
+	}
+
+	/**
+	 * @param pedidoService the pedidoService to set
+	 */
+	public void setPedidoService(PedidoService pedidoService) 
+	{
+		this.pedidoService = pedidoService;
+	}
+
+	/**
+	 * @param finanzasService the finanzasService to set
+	 */
+	public void setFinanzasService(FinanzasService finanzasService) 
+	{
+		this.finanzasService = finanzasService;
+	}
+
+	/**
+	 * @param almacenService the almacenService to set
+	 */
+	public void setAlmacenService(AlmacenService almacenService) 
+	{
+		this.almacenService = almacenService;
 	}
 }
