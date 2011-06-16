@@ -64,7 +64,6 @@ function atras()
 <body>
 <form name="formularioPedido" method="get" action="<%=request.getContextPath()%>/registrarPedido.do">
 <input type="hidden" name="accion" value=""/>
-
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -90,28 +89,12 @@ function atras()
           <td bgcolor="#FFFFCC"><span class="Estilo17"></span></td>
         </tr>
         <tr>
-          <td height="30" bgcolor="#FFFFCC"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td bgcolor="#FFFFCC"><a href="<%=request.getContextPath() %>/buscarCliente.do"><span class="Estilo18">Consulta de Cliente</span></a></td>
-        </tr>
-        <tr>
-          <td height="30"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="<%=request.getContextPath() %>/buscarProducto.do"><span class="Estilo18">Consulta de Productos</span></a></td>
+          <td bgcolor="#FFFFCC"><img src="img/bullet1.gif" width="9" height="12"></td>
+          <td bgcolor="#FFFFCC"><a href="<%=request.getContextPath() %>/buscarCliente.do"><span class="Estilo18">Registro de Pedido </span></a></td>
         </tr>
         <tr>
           <td height="26"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Existencias</span></a></td>
-        </tr>
-        <tr>
-          <td height="29"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="<%=request.getContextPath() %>/buscarDocumentos.do"><span class="Estilo18">Consulta de Credito </span></a></td>
-        </tr>
-        <tr>
-          <td height="30"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Pedidos</span></a></td>
-        </tr>
-        <tr>
-          <td height="23"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><span class="Estilo18">Registro de Pedidos</span></td>
+          <td><a href="<%=request.getContextPath() %>/buscarStock.do"><span class="Estilo18">Consulta de Existencias</span></a></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -188,34 +171,28 @@ function atras()
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Nombre/Rz Social : </span></td>
                 <td>
-                	<input name="txtNombre" type="text" id="txtNombre" disabled="disabled" value="${model.clienteSeleccionado.nombre}">
-                </td>
+                	<input name="txtNombre" type="text" id="txtNombre" disabled="disabled" value="${model.clienteSeleccionado.nombre}">                </td>
                 <td><span class="Estilo40">D.O.I : </span></td>
                 <td>
-                	<input name="txtDocumentoIdentidad" type="text" disabled="disabled" id="txtDocumentoIdentidad" value="${model.clienteSeleccionado.documentoIdentidad}">
-                </td>
+                	<input name="txtDocumentoIdentidad" type="text" disabled="disabled" id="txtDocumentoIdentidad" value="${model.clienteSeleccionado.documentoIdentidad}">                </td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Apellido Paterno : </span></td>
                 <td>
-                	<input name="txtApellidoPaterno" type="text" disabled="disabled" id="txtApellidoPaterno" value="${model.clienteSeleccionado.apellidoPaterno}">
-                </td>
+                	<input name="txtApellidoPaterno" type="text" disabled="disabled" id="txtApellidoPaterno" value="${model.clienteSeleccionado.apellidoPaterno}">                </td>
                 <td><span class="Estilo40">Apellido Materno : </span></td>
                 <td>
-                	<input name="txtApellidoPaterno" type="text" disabled="disabled" id="txtApellidoMaterno" value="${model.clienteSeleccionado.apellidoMaterno}">
-                </td>
+                	<input name="txtApellidoPaterno" type="text" disabled="disabled" id="txtApellidoMaterno" value="${model.clienteSeleccionado.apellidoMaterno}">                </td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Dirección : </span></td>
                 <td>
-                	<input name="txtDireccion" type="text" disabled="disabled" id="txtDireccion" value="${model.clienteSeleccionado.direccion}">
-                </td>
+                	<input name="txtDireccion" type="text" disabled="disabled" id="txtDireccion" value="${model.clienteSeleccionado.direccion}">                </td>
                 <td><span class="Estilo40">Teléfono : </span></td>
                 <td>
-                	<input name="txtTelefono" type="text" disabled="disabled" id="txtTelefono" value="${model.clienteSeleccionado.telefono}">
-                </td>
+                	<input name="txtTelefono" type="text" disabled="disabled" id="txtTelefono" value="${model.clienteSeleccionado.telefono}">                </td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
@@ -243,7 +220,10 @@ function atras()
                 <td><span class="Estilo40">Tipo de Pago:</span></td>
                 <td><span class="Estilo27">
                   <label></label>
-                  <input name="txtTipoPago" type="text" id="txtTipoPago">
+                  <select name="cboTipoPago">
+                    <option>Contado</option>
+                    <option>Credito</option>
+                                                      </select>
                 </span></td>
                 <td><span class="Estilo40">Fecha Vencimiento: </span></td>
                 <td><span class="Estilo27">
@@ -259,7 +239,11 @@ function atras()
                 </span></td>
                 <td><span class="Estilo40">Moneda: </span></td>
                 <td><span class="Estilo27">
-                  <input name="txtMoneda" type="text" id="txtMoneda">
+                  <select name="cboMoneda">
+                    <option>Soles</option>
+                    <option>Dolares</option>
+                    <option>Euros</option>
+                                    </select>
                 </span></td>
               </tr>
               <tr>
@@ -300,8 +284,7 @@ function atras()
 	                      <td class="Estilo27">${producto.descripcion}</td>
 	                      <td class="Estilo27">${producto.tipo}</td>
 	                      <td class="Estilo27">
-	                      	<input name="cantidad${producto.codigo}" disabled="disabled" id="cantidad${producto.codigo}" type="text" size="3" value="${producto.cantidad}">
-	                      </td>
+	                      	<input name="cantidad${producto.codigo}" disabled="disabled" id="cantidad${producto.codigo}" type="text" size="3" value="${producto.cantidad}">	                      </td>
 	                      <td class="Estilo27">${producto.precio}</td>
 	                      <td class="Estilo27">${producto.total}</td>
 	                    </tr>                    	
