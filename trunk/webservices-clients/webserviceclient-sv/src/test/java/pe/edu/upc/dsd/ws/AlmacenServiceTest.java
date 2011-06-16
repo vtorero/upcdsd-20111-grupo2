@@ -19,7 +19,7 @@ public class AlmacenServiceTest {
 	@Test
 	public void testObtenerStock()
 	{
-		int Stock  = almacenService.obtenerStock("P0001");
+		int Stock  = almacenService.obtenerStock("01");
 		{
 		    Assert.assertEquals(100,Stock);
 		}
