@@ -66,7 +66,7 @@ public class BusquedaProductoController extends AbstractController
 			// y buscarlos en la lista traida por el servicio guardada en sesion
 			
 			guardarProductosSeleccionados(request);
-			return new ModelAndView(new RedirectView("registrarPedido.do?accion=buscar"));
+			return new ModelAndView(new RedirectView("registrarPedido.do?accion=cargar"));
 
 		}
 		else if(esAccionAtras(request))
@@ -128,7 +128,7 @@ public class BusquedaProductoController extends AbstractController
 	@SuppressWarnings("unchecked")
 	private Producto obtenerProductoSeleccionado(HttpServletRequest request, String codigo)
 	{
-		for (Producto producto : (List<Producto>) getModel(request).get("producto")) 
+		for (Producto producto : (List<Producto>) getModel(request).get("productos")) 
 		{
 			if(producto.getCodigo().equals(codigo))
 			{
