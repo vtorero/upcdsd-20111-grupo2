@@ -169,7 +169,7 @@ body {
               <td colspan="2" align="right">&nbsp;</td>
               </tr>
             <tr>
-              <td><span class="Estilo27"></td>
+              <td><span class="Estilo27"></span></td>
               <td><span class="Estilo27"></span><a href="ConsultaProductos.html"><img src="img/flechaAtras.jpg" width="49" height="36" border="0"></a></td>
               <td colspan="3" align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="33" height="32" border="0"></a></td>
               <td align="right"><a href="RegistroPedido.jsp"><img src="img/flechaSiguiente.jpg" width="38" height="34" border="0"></a></td>
