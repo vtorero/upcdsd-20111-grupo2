@@ -35,6 +35,7 @@ public class RegistroPedidoController extends AbstractController
 		{
 			// Se direcciona a la pagina de registro de pedido junto con los datos 
 			// recolectados previamente.
+			setAttributeToModel(request, "codigoPedido", service.generarNumeroPedido());
 			return new ModelAndView(VISTA_REGISTRO_PEDIDO, getModel(request));
 		}
 		else if(esAccionAtras(request))
@@ -57,7 +58,6 @@ public class RegistroPedidoController extends AbstractController
 	 */
 	private void setAttributeToModel(HttpServletRequest request, String name, Object value)
 	{
-		logger.debug("Guardando en sesion el objeto " + value + " con nombre '" + name + "'");
 		getModel(request).put(name, value);
 	}
 	
