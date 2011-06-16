@@ -67,7 +67,7 @@ body {
         </tr>
         <tr>
           <td height="26"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="ConsultaExistencias.html"><span class="Estilo18">Consulta de Existencias</span></a></td>
+          <td><a href="<%=request.getContextPath() %>/buscarStock.do"><span class="Estilo18">Consulta de Existencias</span></a></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
