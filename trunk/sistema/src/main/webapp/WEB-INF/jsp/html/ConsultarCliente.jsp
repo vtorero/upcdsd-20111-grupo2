@@ -50,7 +50,7 @@ body {
 		document.formularioCliente.submit();
 	}
 	
-	function siguiente(selectedValue)
+	function siguiente()
 	{
 		document.formularioCliente.accion.value = 'siguiente';
 		document.formularioCliente.submit();
@@ -149,7 +149,6 @@ body {
               <td><span class="Estilo54">Criterio : </span></td>
               <td><label>
                 <select name="select">
-                  <option>- Seleccione -</option>
                   <option>Codigo</option>
                 </select>
               </label></td>
@@ -218,7 +217,7 @@ body {
               <td><span class="Estilo27"></span></td>
               <td align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="34" height="34" border="0"></a></td>
               <td align="right">&nbsp;</td>
-              <td align="right"><a href="ConsultaDocumentosPago.html"><img src="img/flechaSiguiente.jpg" width="44" height="39" border="0"></a></td>
+              <td align="right"><a href="javascript:siguiente();"><img src="img/flechaSiguiente.jpg" width="44" height="39" border="0"></a></td>
             </tr>
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
