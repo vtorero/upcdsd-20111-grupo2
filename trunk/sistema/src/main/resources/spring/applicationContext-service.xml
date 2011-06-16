@@ -35,7 +35,7 @@
 
   <!-- Service que se encargara de realizar las llamadas a los servicios web y mapear
       los datos necesarios para la aplicacion -->
-  <bean id="service" class="pe.com.upc.dsd.service.impl.ServiceImpl" >
+  <bean id="service" class="pe.edu.upc.dsd.service.impl.ServiceImpl" >
     <property name="clienteService" ref="clienteService" />
     <property name="productoService" ref="productoService" />
     <property name="pedidoService" ref="pedidoService" />
