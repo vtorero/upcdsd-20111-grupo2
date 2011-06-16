@@ -79,6 +79,20 @@ body {
 		document.formularioProducto.accion.value = 'atras';
 		document.formularioProducto.submit();
 	}
+	
+	function displayInput(selectedValue)
+	{
+		if(selectedValue == '1')
+		{
+			document.formularioProducto.codigoProducto.style.display = 'inline';
+			document.formularioProducto.categoriaProducto.style.display = 'none';
+		}
+		else
+		{
+			document.formularioProducto.codigoProducto.style.display = 'none';
+			document.formularioProducto.categoriaProducto.style.display = 'inline';
+		}
+	}
 
 </script>
 
@@ -113,7 +127,7 @@ body {
         </tr>
         <tr>
           <td height="23"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Registro de Pedidos</span></a></td>
+          <td><a href="<%=request.getContextPath() %>/buscarCliente.do"><span class="Estilo18">Registro de Pedidos</span></a></td>
         </tr>
         <tr>
           <td height="26"><img src="img/bullet1.gif" width="9" height="12"></td>
@@ -171,13 +185,22 @@ body {
               <th scope="row"><span class="Estilo27"></span></th>
               <td><span class="Estilo40"><strong>Criterio </strong>: </span></td>
               <td><label>
-                <select name="criterioBusqueda" id="criterioBusqueda" >
-                  <option value="0">Codigo</option>
-                  <option value="1">Categoria</option>
+                <select name="criterioBusqueda" id="criterioBusqueda" onchange="javascript:displayInput(this.value);">
+                  <option value="1">Codigo</option>
+                  <option value="2">Categoria</option>
                 </select>
               </label></td>
-              <td><span class="Estilo46">Ingrese Datos : </span></td>
-              <td><input id="codigoProducto" name="codigoProducto" type="text" ></td>
+              <td>
+              	<span class="Estilo46">Ingrese Datos : </span>
+              </td>
+              <td>
+              	<input style="display: inline;" id="codigoProducto" name="codigoProducto" type="text" >
+              	<select style="display: none;" id="categoriaProducto" name="categoriaProducto">
+              		<option value="01">Motos</option>
+              		<option value="02">Repuestos</option>
+              		<option value="03">Llantas</option>
+              	</select>
+              </td>
               <td><span class="Estilo27">
                 <input name="btnAgregarProductos22" type="submit" id="btnBuscar" onclick="javascript:buscar();" value="Buscar">
               </span></td>
