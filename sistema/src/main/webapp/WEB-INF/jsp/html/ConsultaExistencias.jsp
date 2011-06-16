@@ -1,4 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@page import="pe.edu.upc.dsd.ws.bean.Stock"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
 <title>Untitled</title>
@@ -37,8 +41,22 @@ body {
 .Estilo75 {color: #FFFFFF; font-weight: bold; font-size: 11px; }
 .Estilo76 {font-size: 11px}
 -->
-</style></head>
+</style>
+
+<script type="text/javascript">
+
+	function buscar()
+	{
+		document.formularioProducto.accion.value = 'buscar';
+		document.formularioProducto.submit();
+	}
+	
+</script>
+
+</head>
 <body>
+<form name="formularioStock" method="get" action="<%=request.getContextPath()%>/buscarStock.do">
+<input type="hidden" name="accion" value=""/>
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -124,16 +142,15 @@ body {
               <td><span class="Estilo40"><strong>Almacen</strong>: </span></td>
               <td><label>
                 <select name="select">
-                  <option selected>- Seleccione -</option>
                   <option>Alamcen Lima</option>
                   <option>Almacen Central</option>
                   <option>Almacen Loreto</option>
                 </select>
               </label></td>
-              <td><span class="Estilo46">Producto : </span></td>
-              <td><input name="txtNombre" type="text" id="txtNombre"></td>
+              <td><span class="Estilo46">Ingrese Datos : </span></td>
+              <td><input id="codigoProducto" name="codigoProducto" id="txtNombre"></td>
               <td><span class="Estilo27">
-                <input name="btnAgregarProductos22" type="submit" id="btnAgregarProductos22" value="Buscar">
+                <input name="btnBuscar" type="submit" id="btnAgregarProductos22" onclick="javascript:buscar();" value="Buscar">
               </span></td>
             </tr>
             <tr>
@@ -150,28 +167,17 @@ body {
                   <tr>
                     <th width="4%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo75">N°</span></th>
                     <td width="16%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Descripción</span></td>
-                    <td width="29%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Existencia</span></td>
+                    <td width="29%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Stock</span></td>
+                    <td width="29%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Almacen</span></td>
                     </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    </tr>
+                    <c:forEach items="${model.stocks}" var="stock">
+	                  <tr>
+	                    <th class="Estilo27" scope="row">${stock.codigoProducto}</th>
+	                    <td class="Estilo27">${stock.descripcion}</td>
+	                    <td class="Estilo27">${stock.stock}</td>
+	                    <td class="Estilo27">${stock.almacen}</td>
+	                  </tr>                  	
+                  </c:forEach>
               </table></td>
             </tr>
             <tr>
@@ -228,7 +234,7 @@ body {
 
 
 </table>
-
+</form>
 
 </body>
 </html>
