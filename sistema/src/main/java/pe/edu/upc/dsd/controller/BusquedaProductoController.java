@@ -14,6 +14,7 @@ import org.springframework.web.servlet.mvc.AbstractController;
 import org.springframework.web.servlet.view.RedirectView;
 
 import pe.edu.upc.dsd.service.Service;
+import pe.edu.upc.dsd.ws.bean.Cliente;
 import pe.edu.upc.dsd.ws.bean.Producto;
 
 public class BusquedaProductoController extends AbstractController 
@@ -59,12 +60,14 @@ public class BusquedaProductoController extends AbstractController
 		}
 		else if(esAccionSiguiente(request))
 		{
-			logger.debug("Redireccionando a la pagina de consulta de documentos de pago...");
+			logger.debug("Redireccionando a la pagina de Pedido...");
 			
 			//TODO: Se debe implementar el obtener los codigos de los productos seleccionados
 			// y buscarlos en la lista traida por el servicio guardada en sesion
 			
-			return new ModelAndView(new RedirectView("pedido.do"));
+			guardarProductosSeleccionados(request);
+			return new ModelAndView(new RedirectView("registrarPedido.do?accion=buscar"));
+
 		}
 		else if(esAccionAtras(request))
 		{
@@ -103,6 +106,37 @@ public class BusquedaProductoController extends AbstractController
 		}
 			
 		return productos;
+	}
+	
+	private void guardarProductosSeleccionados(HttpServletRequest request)
+	{
+		String[] seleccion = request.getParameterValues("chkProducto");
+		
+		if(seleccion.length > 0)
+		{
+			List<Producto> productosSeleccionados = new ArrayList<Producto>();
+			for (int i = 0; i < seleccion.length; i++) {
+				String codigo = seleccion[i];
+				Producto productoSeleccionado = obtenerProductoSeleccionado(request, codigo);
+				productosSeleccionados.add(productoSeleccionado);
+				
+			}
+			setAttributeToModel(request, "productosSeleccionados", productosSeleccionados);
+		}
+	}
+	
+	@SuppressWarnings("unchecked")
+	private Producto obtenerProductoSeleccionado(HttpServletRequest request, String codigo)
+	{
+		for (Producto producto : (List<Producto>) getModel(request).get("producto")) 
+		{
+			if(producto.getCodigo().equals(codigo))
+			{
+				return producto;
+			}
+		}
+		
+		return null;
 	}
 	
 	/**
