@@ -5,6 +5,7 @@ import java.util.List;
 
 import javax.jws.WebService;
 
+import pe.edu.upc.dsd.jms.MessageSender;
 import pe.edu.upc.dsd.ws.bean.Cliente;
 import pe.edu.upc.dsd.ws.bean.Pedido;
 import pe.edu.upc.dsd.ws.bean.Producto;
@@ -13,6 +14,8 @@ import pe.edu.upc.dsd.ws.bean.Producto;
 public class PedidoServiceImpl implements PedidoService
 {
 	private List<Pedido> pedidos;
+	
+	private MessageSender messageSender;
 	
 	public PedidoServiceImpl()
 	{
@@ -37,6 +40,10 @@ public class PedidoServiceImpl implements PedidoService
     public String registrarPedido(Pedido pedido)
     {
     	this.pedidos.add(pedido);
+    	
+    	//Se envia el pedido a la cola de pedidos
+    	messageSender.send(pedido.toString());
+    	
         return "VTA00" + this.pedidos.size();
     }
 
@@ -86,4 +93,11 @@ public class PedidoServiceImpl implements PedidoService
     	return pedidosPrueba;
     }
     
+    /**
+     * @param messageSender
+     */
+    public void setMessageSender(MessageSender messageSender)
+    {
+    	this.messageSender = messageSender;
+    }
 }
