@@ -16,5 +16,9 @@
   <bean name="/buscarDocumentos.do" class="pe.edu.upc.dsd.controller.BusquedaDocumentosController" >
     <property name="service" ref="service" />
   </bean>
+
+  <bean name="/registrarPedido.do" class="pe.edu.upc.dsd.controller.RegistroPedidoController" >
+    <property name="service" ref="service" />
+  </bean>
   
 </beans>
