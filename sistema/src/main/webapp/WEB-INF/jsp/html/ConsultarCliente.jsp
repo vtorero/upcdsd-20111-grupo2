@@ -34,11 +34,11 @@ body {
 .Estilo13 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
-.Estilo27 {font-family: Arial, Helvetica, sans-serif}
+.Estilo27 {font-family: Arial, Helvetica, sans-serif, font-size: 11px;}
 .Estilo44 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
 .Estilo54 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; }
 .Estilo56 {font-weight: bold; font-size: 11px; color: #FFFFFF; }
-.Estilo58 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
+.Estilo22 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 --> 
 </style> 
 
@@ -170,7 +170,7 @@ body {
               <th scope="row"><span class="Estilo27"></span></th>
               <td colspan="5" rowspan="5"><table width="100%" border="1">
                   <tr>
-                    <th width="4%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo56">NÂ°</span></th>
+                    <td width="4%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo56">N°</span></td>
                     <td width="18%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo56">Nombre / Rz Social </span></td>
                     <td width="30%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo56">Apellidos </span></td>
                     <td width="14%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo56">D.O.I</span></td>
@@ -180,12 +180,12 @@ body {
                   </tr>
                   <c:forEach items="${model.clientes}" var="cliente">
 	                  <tr>
-	                    <th class="Estilo27" scope="row">${cliente.codigo}</th>
-	                    <td class="Estilo27">${cliente.nombre}</td>
-	                    <td class="Estilo27">${cliente.apellidoPaterno} ${cliente.apellidoMaterno}</td>
-	                    <td class="Estilo27">${cliente.documentoIdentidad}</td>
-	                    <td class="Estilo27">${cliente.telefono}</td>
-	                    <td class="Estilo27">${cliente.tipoPersona}</td>
+	                    <td class="Estilo22" scope="row">${cliente.codigo}</td>
+	                    <td class="Estilo22">${cliente.nombre}</td>
+	                    <td class="Estilo22">${cliente.apellidoPaterno} ${cliente.apellidoMaterno}</td>
+	                    <td class="Estilo22">${cliente.documentoIdentidad}</td>
+	                    <td class="Estilo22">${cliente.telefono}</td>
+	                    <td class="Estilo22">${cliente.tipoPersona}</td>
 	                    <td class="Estilo27" align="center"><input name="chkCliente" type="radio" value="${cliente.codigo}"></td>
 	                  </tr>                  	
                   </c:forEach>
