@@ -26,7 +26,7 @@ public class ClienteServiceImpl implements ClienteService
     {
 		for (Cliente cliente : clientes) 
 		{
-			if(cliente.getCodigo().equals(codigoCliente))
+			if(cliente.getDocumentoIdentidad().equals(codigoCliente))
 			{
 				return cliente;
 			}
