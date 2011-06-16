@@ -19,13 +19,14 @@ public class BusquedaProductoController extends AbstractController
 {
 	private static final Logger logger = Logger.getLogger(BusquedaProductoController.class);
 	
-	private static final String VISTA_BUSQUEDA_PRODUCTOS = "ConsultaProductos";
-	private static final String VISTA_BUSQUEDA_CLIENTES = "ConsultaClientes";
+	
 	private static final String VISTA_BUSQUEDA_DOCUMENTOS = "ConsultaDocumentosPago";
+	private static final String VISTA_BUSQUEDA_PRODUCTOS = "ConsultaProductos";
+	private static final String VISTA_TIPO_PAGO = "TipoPago";
 	
 	private static final String PARAMETRO_ACCION = "accion";
 	private static final String PARAMETRO_CRITERIO = "criterioBusqueda";
-	private static final String PARAMETRO_CODIGO = "codigo";
+	private static final String PARAMETRO_CODIGO = "codigoProducto";
 	
 	private static final String ACCION_BUSCAR = "buscar";
 	private static final String ACCION_SIGUIENTE = "siguiente";
@@ -39,7 +40,7 @@ public class BusquedaProductoController extends AbstractController
 	@Override
 	protected ModelAndView handleRequestInternal(HttpServletRequest request, HttpServletResponse response) throws Exception 
 	{
-		logger.debug("La accion a realizar sera: " + request.getParameter(PARAMETRO_ACCION));
+		logger.debug("Accion es: " + request.getParameter(PARAMETRO_ACCION));
 		
 		if(esAccionBuscar(request))
 		{
@@ -62,12 +63,12 @@ public class BusquedaProductoController extends AbstractController
 			//TODO: Se debe implementar el obtener los codigos de los productos seleccionados
 			// y buscarlos en la lista traida por el servicio guardada en sesion
 			
-			return new ModelAndView(VISTA_BUSQUEDA_DOCUMENTOS);
+			return new ModelAndView(VISTA_TIPO_PAGO);
 		}
 		else if(esAccionAtras(request))
 		{
 			logger.debug("Redireccionando a la pagina anterior de busqueda de clientes...");
-			return new ModelAndView(VISTA_BUSQUEDA_CLIENTES);
+			return new ModelAndView(VISTA_BUSQUEDA_DOCUMENTOS);
 		}
 		
 		return new ModelAndView(VISTA_BUSQUEDA_PRODUCTOS);
@@ -120,7 +121,10 @@ public class BusquedaProductoController extends AbstractController
 		
 		if(model == null)
 		{
-			return new HashMap<String, Object>();
+			model = new HashMap<String, Object>();
+			request.getSession().setAttribute("model", model);
+			
+			return model;
 		}
 		
 		return model;
