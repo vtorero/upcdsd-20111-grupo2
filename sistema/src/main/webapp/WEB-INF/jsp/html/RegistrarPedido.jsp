@@ -164,7 +164,7 @@ function atras()
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Pedido Nro : </span></td>
                 <td><span class="Estilo27">
-                  <input name="txtCodPedido" type="text" id="txtCodPedido">
+                  <input name="txtCodPedido" type="text" id="txtCodPedido" value="${model.codigoPedido}">
                 </span></td>
                 <td><span class="Estilo40">Fecha : </span></td>
                 <td><span class="Estilo27">
