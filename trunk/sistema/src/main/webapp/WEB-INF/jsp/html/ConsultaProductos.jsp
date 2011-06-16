@@ -217,7 +217,7 @@ body {
               </tr>
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
-              <td><span class="Estilo27"><a href="ConsultaDocumentosPago.html"><img src="img/flechaAtras.jpg" width="43" height="37" border="0"></a></td>
+              <td><span class="Estilo27"></span><a href="ConsultaDocumentosPago.html"><img src="img/flechaAtras.jpg" width="43" height="37" border="0"></a></td>
               <td><span class="Estilo27"></span></td>
               <td align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="38" height="37" border="0"></a></td>
               <td align="right">&nbsp;</td>
