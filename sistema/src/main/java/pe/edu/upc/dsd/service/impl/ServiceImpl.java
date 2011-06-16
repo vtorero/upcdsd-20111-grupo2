@@ -1,6 +1,7 @@
 package pe.edu.upc.dsd.service.impl;
 
 import java.util.List;
+import java.util.Random;
 
 import pe.edu.upc.dsd.service.Service;
 import pe.edu.upc.dsd.ws.AlmacenService;
@@ -94,6 +95,24 @@ public class ServiceImpl implements Service
 		return almacenService.obtenerStock(codigo);
 	}
 
+	/**
+	 * @see pe.edu.upc.dsd.service.Service#generarNumeroPedido()
+	 */
+	@Override
+	public String generarNumeroPedido() 
+	{
+		Random rnd = new Random();
+		
+    	int numero = 0;
+    	
+    	for (int i = 0; i < 10; i++) 
+    	{
+        	numero = (int)(rnd.nextDouble() * 10.0);
+        }
+    	
+		return "PED00" + numero;
+	}
+	
 	/**
 	 * @param clientService the clientService to set
 	 */
