@@ -6,6 +6,7 @@ import pe.edu.upc.dsd.ws.bean.Cliente;
 import pe.edu.upc.dsd.ws.bean.DocumentoPendiente;
 import pe.edu.upc.dsd.ws.bean.Pedido;
 import pe.edu.upc.dsd.ws.bean.Producto;
+import pe.edu.upc.dsd.ws.bean.Stock;
 
 public interface Service 
 {
@@ -71,5 +72,5 @@ public interface Service
 	 * @param codigo
 	 * @return
 	 */
-	int obtenerStock(String codigo);
+	Stock obtenerStock(String codigo);
 }
