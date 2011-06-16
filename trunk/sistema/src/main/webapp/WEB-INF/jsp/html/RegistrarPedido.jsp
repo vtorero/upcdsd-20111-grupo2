@@ -34,7 +34,7 @@ body {
 .Estilo13 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
-.Estilo27 {font-family: Arial, Helvetica, sans-serif}
+.Estilo27 {font-family: Arial, Helvetica, sans-serif; font-size: 11px;}
 .Estilo40 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo48 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; }
 .Estilo52 {font-weight: bold; font-size: 11px; color: #FFFFFF; }
