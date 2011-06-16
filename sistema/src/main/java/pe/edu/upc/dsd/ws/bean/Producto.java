@@ -13,6 +13,8 @@ public class Producto
     private double precio;
 
     private String tipo;
+    
+    private int cantidad;
 
     /**
      * @return the codigo
@@ -81,4 +83,28 @@ public class Producto
     {
         this.tipo = tipo;
     }
+
+	/**
+	 * @return the cantidad
+	 */
+	public int getCantidad() 
+	{
+		return cantidad;
+	}
+
+	/**
+	 * @param cantidad the cantidad to set
+	 */
+	public void setCantidad(int cantidad) 
+	{
+		this.cantidad = cantidad;
+	}
+
+	/**
+	 * @return the total
+	 */
+	public double getTotal() 
+	{
+		return this.cantidad * this.precio;
+	}
 }
