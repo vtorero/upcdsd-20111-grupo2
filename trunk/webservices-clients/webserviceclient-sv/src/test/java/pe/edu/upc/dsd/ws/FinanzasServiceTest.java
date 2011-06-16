@@ -23,7 +23,7 @@ public class FinanzasServiceTest {
 	@Test
 	public void testObtenerConsultaDeuda()
 	{
-		List<DocumentoPendiente> documentoPendientes  = finanzasService.obtenerConsultaDeuda("2");
+		List<DocumentoPendiente> documentoPendientes  = finanzasService.getDocumentosPendientes("01");
 		{
 		    Assert.assertEquals(2, documentoPendientes.size());
 		}
@@ -32,9 +32,9 @@ public class FinanzasServiceTest {
 	@Test
 	public void testObtenerLineaCredito()
 	{
-		double lineaCredito  = finanzasService.obtenerLineaCredito("2");
+		double lineaCredito  = finanzasService.obtenerLineaCredito("03");
 		{
-		    Assert.assertEquals(8000.00,lineaCredito);
+		    Assert.assertEquals(50000.00,lineaCredito);
 		}
 	}
 
