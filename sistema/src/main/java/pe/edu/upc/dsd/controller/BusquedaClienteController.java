@@ -1,6 +1,8 @@
 package pe.edu.upc.dsd.controller;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -34,31 +36,38 @@ public class BusquedaClienteController extends AbstractController
 		if(esAccionBuscar(request))
 		{
 			// Se obtiene el cliente del servicio y se muestra el resultado en la misma pantalla
-			Cliente cliente = buscarCliente(request);
-			
-			if(cliente != null)
-			{
-				setAttributeToModel(request, "cliente", cliente);
-				return new ModelAndView(VISTA_BUSQUEDA_CLIENTES, getModel(request));
-			}
+			List<Cliente> clientes = buscarCliente(request);
+
+			setAttributeToModel(request, "clientes", clientes);
+			return new ModelAndView(VISTA_BUSQUEDA_CLIENTES, getModel(request));
 		}
 		else if(esAccionSiguiente(request))
 		{
 			logger.debug("Redireccionando a la pagina de consulta de documentos...");
+			
+			//TODO: Se debera guardar en sesion unicamente el cliente seleccionado para su uso en lo que sigue del proceso.
+			
 			return new ModelAndView(VISTA_CONSULTA_DOCUMENTOS);
 		}
 		
 		return new ModelAndView(VISTA_BUSQUEDA_CLIENTES);
 	}
 
-	private Cliente buscarCliente(HttpServletRequest request)
+	private List<Cliente> buscarCliente(HttpServletRequest request)
 	{
 		String codigoCliente = request.getParameter("codigoCliente");
 		
 		logger.debug("Se buscara el cliente con codigo: " + codigoCliente);
-		
+	
+		List<Cliente> clientes = new ArrayList<Cliente>();
 		Cliente cliente = service.obtenerCliente(codigoCliente);
-		return cliente;
+		
+		if(cliente != null)
+		{
+			clientes.add(cliente);
+		}
+		
+		return clientes;
 	}
 	
 	/**
