@@ -64,6 +64,13 @@ public class BusquedaClienteController extends AbstractController
 		
 		if(cliente != null)
 		{
+			logger.debug("Datos del cliente obtenido:");
+			logger.debug("Codigo: " + cliente.getCodigo());
+			logger.debug("Nombre: " + cliente.getNombre());
+			logger.debug("Apellido Paterno: " + cliente.getApellidoPaterno());
+			logger.debug("Apellido Materno: " + cliente.getApellidoMaterno());
+			logger.debug("Telefono: " + cliente.getTelefono());
+			
 			clientes.add(cliente);
 		}
 		
@@ -87,7 +94,10 @@ public class BusquedaClienteController extends AbstractController
 		
 		if(model == null)
 		{
-			return new HashMap<String, Object>();
+			model = new HashMap<String, Object>();
+			request.getSession().setAttribute("model", model);
+			
+			return model;
 		}
 		
 		return model;
