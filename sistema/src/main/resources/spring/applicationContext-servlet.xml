@@ -18,4 +18,8 @@
     <property name="service" ref="service" />
   </bean>
   
+  <bean name="/buscarProducto" class="pe.edu.upc.dsd.controller.BusquedaProductoController" >
+    <property name="service" ref="service" />
+  </bean>
+  
 </beans>
