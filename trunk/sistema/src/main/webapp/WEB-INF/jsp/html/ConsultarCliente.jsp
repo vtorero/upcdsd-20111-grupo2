@@ -53,7 +53,7 @@ body {
 	function siguiente()
 	{
 		document.formularioCliente.accion.value = 'siguiente';
-		document.formularioCliente.submit();
+		document.formularioCliente.submit();			
 	}
 
 </script>
