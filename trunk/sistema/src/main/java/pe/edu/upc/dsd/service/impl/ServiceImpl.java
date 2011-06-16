@@ -12,6 +12,7 @@ import pe.edu.upc.dsd.ws.bean.Cliente;
 import pe.edu.upc.dsd.ws.bean.DocumentoPendiente;
 import pe.edu.upc.dsd.ws.bean.Pedido;
 import pe.edu.upc.dsd.ws.bean.Producto;
+import pe.edu.upc.dsd.ws.bean.Stock;
 
 public class ServiceImpl implements Service 
 {
@@ -88,7 +89,7 @@ public class ServiceImpl implements Service
 	 * @see pe.edu.upc.dsd.service.Service#obtenerStock(java.lang.String)
 	 */
 	@Override
-	public int obtenerStock(String codigo) 
+	public Stock obtenerStock(String codigo) 
 	{
 		return almacenService.obtenerStock(codigo);
 	}
