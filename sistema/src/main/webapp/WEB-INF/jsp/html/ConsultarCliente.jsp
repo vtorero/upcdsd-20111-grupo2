@@ -1,4 +1,8 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+
+<%@page import="pe.edu.upc.dsd.ws.bean.Cliente"%>
+<%@page import="java.util.List"%>
 <html>
 <head>
 <title>Untitled</title>
@@ -35,9 +39,31 @@ body {
 .Estilo54 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; }
 .Estilo56 {font-weight: bold; font-size: 11px; color: #FFFFFF; }
 .Estilo58 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
--->
-</style></head>
+--> 
+</style> 
+
+<script type="text/javascript">
+
+	function buscar()
+	{
+		document.formularioCliente.accion.value = 'buscar';
+		document.formularioCliente.submit();
+	}
+	
+	function siguiente(selectedValue)
+	{
+		document.formularioCliente.accion.value = 'siguiente';
+		document.formularioCliente.submit();
+	}
+
+</script>
+
+
+</head>
 <body>
+<form name="formularioCliente" method="get" action="<%=request.getContextPath()%>/buscarCliente.do">
+<input type="hidden" name="accion" value=""/>
+ 
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -124,15 +150,13 @@ body {
               <td><label>
                 <select name="select">
                   <option>- Seleccione -</option>
-                  <option>Nombre/Rz Social</option>
-                  <option>Apellido</option>
                   <option>Codigo</option>
                 </select>
               </label></td>
               <td><span class="Estilo54">Ingrese Datos: </span></td>
-              <td><input name="txtNombre" type="text" id="txtNombre"></td>
+              <td><input id="codigoCliente" name="codigoCliente" type="text" ></td>
               <td><span class="Estilo27">
-                <input name="btnBuscar" type="submit" id="btnBuscar" value="Buscar">
+                <input name="btnBuscar" type="submit" id="btnBuscar" onclick="javascript:buscar();" value="Buscar">
               </span></td>
             </tr>
             <tr>
@@ -155,42 +179,17 @@ body {
                     <td width="10%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo56">Tipo</span></td>
                     <td width="11%" bgcolor="#CC0000" align="center" class="Estilo27"><span class="Estilo56">Seleccionar</span></td>
                   </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="radiobutton" type="radio" value="radiobutton"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="radiobutton" type="radio" value="radiobutton"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="radiobutton" type="radio" value="radiobutton"></td>
-                  </tr>
-                  <tr>
-                    <th class="Estilo27" scope="row">&nbsp;</th>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27">&nbsp;</td>
-                    <td class="Estilo27" align="center"><input name="radiobutton" type="radio" value="radiobutton"></td>
-                  </tr>
+                  <c:forEach items="${model.clientes}" var="cliente">
+	                  <tr>
+	                    <th class="Estilo27" scope="row">${cliente.codigo}</th>
+	                    <td class="Estilo27">${cliente.nombre}</td>
+	                    <td class="Estilo27">${cliente.apellidoPaterno} ${cliente.apellidoMaterno}</td>
+	                    <td class="Estilo27">${cliente.documentoIdentidad}</td>
+	                    <td class="Estilo27">${cliente.telefono}</td>
+	                    <td class="Estilo27">${cliente.tipoPersona}</td>
+	                    <td class="Estilo27" align="center"><input name="chkCliente" type="radio" value="${cliente.codigo}"></td>
+	                  </tr>                  	
+                  </c:forEach>
               </table></td>
             </tr>
             <tr>
@@ -252,19 +251,7 @@ body {
 </table>
 </td>
 </tr>
-
-
 </table>
-
-
+</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
