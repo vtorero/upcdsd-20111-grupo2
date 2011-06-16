@@ -57,6 +57,12 @@ body {
 		document.formularioProducto.submit();
 	}
 
+	function atras()
+	{
+		document.formularioProducto.accion.value = 'atras';
+		document.formularioProducto.submit();
+	}
+
 </script>
 
 </head>
@@ -159,6 +165,16 @@ body {
                 <input name="btnAgregarProductos22" type="submit" id="btnBuscar" onclick="javascript:buscar();" value="Buscar">
               </span></td>
             </tr>
+            
+            <tr>
+              <th scope="row"><span class="Estilo27"></span></th>
+              <td><span class="Estilo40"><strong>Linea Disponible:</strong>: </span></td>
+               <td><span class="Estilo53"><input name="txtDisponible" type="text" id="txtDisponible" value="${model.lineaDisponible}"></span></td>
+              <td><span class="Estilo27"></span></td>
+              <td>&nbsp;</td>
+              <td><span class="Estilo27"></span></td>
+            </tr>
+            
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
               <td><span class="Estilo27"></span></td>
@@ -220,7 +236,7 @@ body {
               </tr>
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
-              <td><span class="Estilo27"></span><a href="ConsultaDocumentosPago.html"><img src="img/flechaAtras.jpg" width="43" height="37" border="0"></a></td>
+              <td><span class="Estilo27"></span><a href="javascript:atras();"><img src="img/flechaAtras.jpg" width="43" height="37" border="0"></a></td>
               <td><span class="Estilo27"></span></td>
               <td align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="38" height="37" border="0"></a></td>
               <td align="right">&nbsp;</td>
