@@ -1,13 +1,14 @@
 package pe.edu.upc.dsd.ws;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 import javax.jws.WebService;
+
 import pe.edu.upc.dsd.ws.bean.DocumentoPendiente;
-import pe.edu.upc.dsd.ws.bean.LineaCreditoDisponible;
 
 @WebService(endpointInterface = "pe.edu.upc.dsd.ws.FinanzasService")
 public class FinanzasServiceImpl implements FinanzasService {
@@ -54,8 +55,8 @@ public class FinanzasServiceImpl implements FinanzasService {
 		documentoPendiente.setMonto(250.05);
 		documentoPendiente.setMoneda("S/.");
 		documentoPendiente.setDiasRetraso(10);
-		documentoPendiente.setFechaEmision(null);
-		documentoPendiente.setFechaVencimiento(null);
+		documentoPendiente.setFechaEmision(new Date());
+		documentoPendiente.setFechaVencimiento(new Date());
 
 		documentoPendientes.add(documentoPendiente);
 
@@ -66,8 +67,8 @@ public class FinanzasServiceImpl implements FinanzasService {
 		documentoPendiente.setMonto(1400.05);
 		documentoPendiente.setMoneda("$");
 		documentoPendiente.setDiasRetraso(35);
-		documentoPendiente.setFechaEmision(null);
-		documentoPendiente.setFechaVencimiento(null);
+		documentoPendiente.setFechaEmision(new Date());
+		documentoPendiente.setFechaVencimiento(new Date());
 
 		documentoPendientes.add(documentoPendiente);
 
@@ -78,8 +79,8 @@ public class FinanzasServiceImpl implements FinanzasService {
 		documentoPendiente.setMonto(1480.00);
 		documentoPendiente.setMoneda("$");
 		documentoPendiente.setDiasRetraso(37);
-		documentoPendiente.setFechaEmision(null);
-		documentoPendiente.setFechaVencimiento(null);
+		documentoPendiente.setFechaEmision(new Date());
+		documentoPendiente.setFechaVencimiento(new Date());
 
 		documentoPendientes.add(documentoPendiente);
 
@@ -90,8 +91,8 @@ public class FinanzasServiceImpl implements FinanzasService {
 		documentoPendiente.setMonto(80.00);
 		documentoPendiente.setMoneda("S/.");
 		documentoPendiente.setDiasRetraso(3);
-		documentoPendiente.setFechaEmision(null);
-		documentoPendiente.setFechaVencimiento(null);
+		documentoPendiente.setFechaEmision(new Date());
+		documentoPendiente.setFechaVencimiento(new Date());
 
 		documentoPendientes.add(documentoPendiente);
 
@@ -102,8 +103,8 @@ public class FinanzasServiceImpl implements FinanzasService {
 		documentoPendiente.setMonto(80.00);
 		documentoPendiente.setMoneda("S/.");
 		documentoPendiente.setDiasRetraso(45);
-		documentoPendiente.setFechaEmision(null);
-		documentoPendiente.setFechaVencimiento(null);
+		documentoPendiente.setFechaEmision(new Date());
+		documentoPendiente.setFechaVencimiento(new Date());
 
 		documentoPendientes.add(documentoPendiente);
 
