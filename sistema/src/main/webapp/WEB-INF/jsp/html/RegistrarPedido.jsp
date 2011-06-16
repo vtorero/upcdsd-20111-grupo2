@@ -1,7 +1,11 @@
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<%@page import="java.util.Date"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+
 <html>
 <head>
-<title>Untitled</title>
+<title>Sistema de Ventas RTM</title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 
 <link href="img/stylesheet.css" rel="stylesheet" type="text/css">
@@ -38,8 +42,29 @@ body {
 .Estilo56 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 11px; }
 .Estilo57 {font-size: 11px}
 -->
-</style></head>
+</style>
+
+<script type="text/javascript">
+
+function finalizar()
+{
+	document.formularioPedido.accion.value = 'finalizar';
+	document.formularioPedido.submit();
+}
+
+function atras()
+{
+	document.formularioPedido.accion.value = 'atras';
+	document.formularioPedido.submit();
+}
+
+</script>
+
+</head>
 <body>
+<form name="formularioPedido" method="get" action="<%=request.getContextPath()%>/registrarPedido.do">
+<input type="hidden" name="accion" value=""/>
+
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -66,11 +91,11 @@ body {
         </tr>
         <tr>
           <td height="30" bgcolor="#FFFFCC"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td bgcolor="#FFFFCC"><a href="#"><span class="Estilo18">Consulta de Cliente</span></a></td>
+          <td bgcolor="#FFFFCC"><a href="<%=request.getContextPath() %>/buscarCliente.do"><span class="Estilo18">Consulta de Cliente</span></a></td>
         </tr>
         <tr>
           <td height="30"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Productos</span></a></td>
+          <td><a href="<%=request.getContextPath() %>/buscarProducto.do"><span class="Estilo18">Consulta de Productos</span></a></td>
         </tr>
         <tr>
           <td height="26"><img src="img/bullet1.gif" width="9" height="12"></td>
@@ -78,7 +103,7 @@ body {
         </tr>
         <tr>
           <td height="29"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Consulta de Credito </span></a></td>
+          <td><a href="<%=request.getContextPath() %>/buscarDocumentos.do"><span class="Estilo18">Consulta de Credito </span></a></td>
         </tr>
         <tr>
           <td height="30"><img src="img/bullet1.gif" width="9" height="12"></td>
@@ -86,7 +111,7 @@ body {
         </tr>
         <tr>
           <td height="23"><img src="img/bullet1.gif" width="9" height="12"></td>
-          <td><a href="#"><span class="Estilo18">Registro de Pedidos</span></a></td>
+          <td><span class="Estilo18">Registro de Pedidos</span></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -143,7 +168,7 @@ body {
                 </span></td>
                 <td><span class="Estilo40">Fecha : </span></td>
                 <td><span class="Estilo27">
-                  <input name="txtFecha" type="text" id="txtFecha">
+                  <input name="txtFecha" type="text" id="txtFecha" disabled="disabled" value="<fmt:formatDate value="<%=new Date()%>" pattern="dd-MM-yyyy" />">
                 </span></td>
               </tr>
               <tr>
@@ -162,23 +187,35 @@ body {
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Nombre/Rz Social : </span></td>
-                <td><input name="txtNombre" type="text" id="txtNombre">                </td>
+                <td>
+                	<input name="txtNombre" type="text" id="txtNombre" disabled="disabled" value="${model.clienteSeleccionado.nombre}">
+                </td>
                 <td><span class="Estilo40">D.O.I : </span></td>
-                <td><input name="txtDocumentoIdentidad" type="text" id="txtDocumentoIdentidad"></td>
+                <td>
+                	<input name="txtDocumentoIdentidad" type="text" disabled="disabled" id="txtDocumentoIdentidad" value="${model.clienteSeleccionado.documentoIdentidad}">
+                </td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Apellido Paterno : </span></td>
-                <td><input name="txtApellidoPaterno" type="text" id="txtApellidoPaterno"></td>
+                <td>
+                	<input name="txtApellidoPaterno" type="text" disabled="disabled" id="txtApellidoPaterno" value="${model.clienteSeleccionado.apellidoPaterno}">
+                </td>
                 <td><span class="Estilo40">Apellido Materno : </span></td>
-                <td><input name="txtApellidoPaterno" type="text" id="txtApellidoPaterno"></td>
+                <td>
+                	<input name="txtApellidoPaterno" type="text" disabled="disabled" id="txtApellidoMaterno" value="${model.clienteSeleccionado.apellidoMaterno}">
+                </td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
                 <td><span class="Estilo40">Dirección : </span></td>
-                <td><input name="txtDireccion" type="text" id="txtDireccion"></td>
+                <td>
+                	<input name="txtDireccion" type="text" disabled="disabled" id="txtDireccion" value="${model.clienteSeleccionado.direccion}">
+                </td>
                 <td><span class="Estilo40">Teléfono : </span></td>
-                <td><input name="txtTelefono" type="text" id="txtTelefono"></td>
+                <td>
+                	<input name="txtTelefono" type="text" disabled="disabled" id="txtTelefono" value="${model.clienteSeleccionado.telefono}">
+                </td>
               </tr>
               <tr>
                 <th scope="row"><span class="Estilo27"></span></th>
@@ -258,39 +295,20 @@ body {
                       <td width="9%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Cantidad</span></td>
                       <td width="13%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">P.U.</span></td>
                       <td width="10%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo52">Total</span></td>
-                      </tr>
-                    <tr>
-                      <th class="Estilo27" scope="row">&nbsp;</th>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27"><input name="txtCantidad" type="text" id="txtCantidad" size="3"></td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      </tr>
-                    <tr>
-                      <th class="Estilo27" scope="row">&nbsp;</th>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27"><input name="txtCantidad2" type="text" id="txtCantidad2" size="3"></td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      </tr>
-                    <tr>
-                      <th class="Estilo27" scope="row">&nbsp;</th>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27"><input name="txtCantidad3" type="text" id="txtCantidad3" size="3"></td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      </tr>
-                    <tr>
-                      <th class="Estilo27" scope="row">&nbsp;</th>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27"><input name="txtCantidad4" type="text" id="txtCantidad4" size="3"></td>
-                      <td class="Estilo27">&nbsp;</td>
-                      <td class="Estilo27">&nbsp;</td>
-                      </tr>
+                    </tr>
+                    
+                    <c:forEach items="${model.productosSeleccionados}" var="producto">
+	                    <tr>
+	                      <th class="Estilo27" scope="row">${producto.codigo}</th>
+	                      <td class="Estilo27">${producto.descripcion}</td>
+	                      <td class="Estilo27">${producto.tipo}</td>
+	                      <td class="Estilo27">
+	                      	<input name="cantidad${producto.codigo}" disabled="disabled" id="cantidad${producto.codigo}" type="text" size="3" value="${producto.cantidad}">
+	                      </td>
+	                      <td class="Estilo27">${producto.precio}</td>
+	                      <td class="Estilo27">${producto.total}</td>
+	                    </tr>                    	
+                    </c:forEach>
                 </table></td>
               </tr>
               <tr>
@@ -318,7 +336,7 @@ body {
                 <td><span class="Estilo27"></span></td>
                 <td><span class="Estilo48">Sub Total:</span></td>
                 <td align="right"><span class="Estilo27">
-                  <input name="txtSubTotal" type="text" id="txtSubTotal">
+                  <input name="txtSubTotal" type="text" disabled="disabled" id="txtSubTotal">
                 </span></td>
               </tr>
               <tr>
@@ -327,7 +345,7 @@ body {
                 <td><span class="Estilo27"></span></td>
                 <td><span class="Estilo48">I.G.V.</span></td>
                 <td align="right"><span class="Estilo27">
-                  <input name="txtIGV" type="text" id="txtIGV">
+                  <input name="txtIGV" type="text" disabled="disabled" id="txtIGV">
                 </span></td>
               </tr>
               <tr>
@@ -336,7 +354,7 @@ body {
                 <td><span class="Estilo27"></span></td>
                 <td><span class="Estilo48">Total:</span></td>
                 <td align="right"><span class="Estilo27">
-                  <input name="txtTotal" type="text" id="txtTotal">
+                  <input name="txtTotal" type="text" disabled="disabled" id="txtTotal">
                 </span></td>
               </tr>
               <tr>
@@ -348,9 +366,9 @@ body {
               </tr>
               <tr>
                 <td><span class="Estilo27"></span></td>
-                <td><span class="Estilo27"></span><a href="ConsultaTipoPago.jsp"><img src="img/flechaAtras.jpg" width="45" height="34" border="0"></a></td>
+                <td><span class="Estilo27"></span><a href="javascript:atras();"><img src="img/flechaAtras.jpg" width="45" height="34" border="0"></a></td>
                 <td colspan="2" align="center"><span class="Estilo27"></span><a href="index.jsp"><img src="img/cancelar.jpg" width="37" height="37" border="0"></a></td>
-                <td align="right"><a href="index.jsp"><img src="img/guardar.jpg" width="41" height="39" border="0"></a></td>
+                <td align="right"><a href="javascript:finalizar();"><img src="img/guardar.jpg" width="41" height="39" border="0"></a></td>
               </tr>
               <tr>
                 <td>&nbsp;</td>
@@ -379,19 +397,7 @@ body {
 </table>
 </td>
 </tr>
-
-
 </table>
-
-
+</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-
