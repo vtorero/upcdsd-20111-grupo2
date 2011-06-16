@@ -73,4 +73,9 @@ public interface Service
 	 * @return
 	 */
 	Stock obtenerStock(String codigo);
+	
+	/**
+	 * @return
+	 */
+	String generarNumeroPedido();
 }
