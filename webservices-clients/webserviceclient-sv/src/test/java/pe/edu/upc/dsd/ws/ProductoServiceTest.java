@@ -30,6 +30,7 @@ public class ProductoServiceTest {
 		Assert.assertEquals("LLANTAS HR21", producto.getDescripcion());
 		Assert.assertEquals(350.0, producto.getPrecio());
 		Assert.assertEquals("03", producto.getTipo());
+		Assert.assertEquals(0, producto.getCantidad());
 	}
 	
 	@Test
