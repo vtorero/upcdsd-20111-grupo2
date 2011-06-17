@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:jaxws="http://cxf.apache.org/jaxws" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd                                                  http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+	
+	<jaxws:client id="productoServiceClient" serviceName="ProductoServiceImpl"
+		serviceClass="pe.edu.upc.dsd.ws.ProductoService" address="http://localhost:8080/webservice-producto/ProductoService" />
+
+    <jaxws:client id="pedidoServiceClient" serviceName="PedidoServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.PedidoService" address="http://localhost:8080/webservice-pedido/PedidoService" />
+
+    <jaxws:client id="finanzasServiceClient" serviceName="FinanzasServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.FinanzasService" address="http://localhost:8080/webservice-finanzas/FinanzasService" />
+      
+    <jaxws:client id="almacenServiceClient" serviceName="AlmacenServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.AlmacenService" address="http://localhost:8080/webservice-almacen/AlmacenService" />
+    
+    <jaxws:client id="clienteServiceClient" serviceName="ClienteServiceImpl"
+      serviceClass="pe.edu.upc.dsd.ws.ClienteService" address="http://localhost:8080/webservice-cliente/ClienteService" />
+      
+</beans>
