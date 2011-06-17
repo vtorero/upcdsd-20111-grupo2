@@ -25,6 +25,7 @@ public class BusquedaClienteController extends AbstractController
 	private static final String PARAMETRO_ACCION = "accion";
 	private static final String ACCION_SIGUIENTE = "siguiente";
 	private static final String ACCION_BUSCAR = "buscar";
+	private static final String ACCION_INICIAR = "iniciar";
 	
 	private Service service;
 	
@@ -47,6 +48,10 @@ public class BusquedaClienteController extends AbstractController
 			
 			guardarClienteSeleccionado(request);
 			return new ModelAndView(new RedirectView("buscarDocumentos.do?accion=buscar"));
+		}
+		else if(esAccionIniciar(request))
+		{
+			request.getSession().removeAttribute("model");
 		}
 		
 		return new ModelAndView(VISTA_BUSQUEDA_CLIENTES);
@@ -145,6 +150,15 @@ public class BusquedaClienteController extends AbstractController
 	private boolean esAccionBuscar(HttpServletRequest request)
 	{
 		return ACCION_BUSCAR.equals(request.getParameter(PARAMETRO_ACCION));
+	}
+
+	/**
+	 * @param request
+	 * @return
+	 */
+	private boolean esAccionIniciar(HttpServletRequest request)
+	{
+		return ACCION_INICIAR.equals(request.getParameter(PARAMETRO_ACCION));
 	}
 	
 	/**
