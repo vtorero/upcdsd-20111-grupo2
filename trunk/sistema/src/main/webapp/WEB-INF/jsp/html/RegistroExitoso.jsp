@@ -37,8 +37,23 @@ body {
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
 .Estilo20 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 20px; }
 -->
-</style></head>
+</style>
+
+<script type="text/javascript">
+	
+	function finalizar()
+	{
+		document.formularioExito.accion.value = 'iniciar';
+		document.formularioExito.submit();			
+	}
+
+</script>
+
+</head>
 <body>
+<form name="formularioExito" method="get" action="<%=request.getContextPath() %>/buscarCliente.do?">
+<input type="hidden" name="accion" value=""/>
+
 <table width="100%" bgcolor="#000000">
 <tr>
 <td height="587" valign="top">
@@ -48,7 +63,7 @@ body {
 	</tr>
 	<tr>
 	  <td height="83" colspan="3" align="center"><p class="Estilo4 Estilo7">BIENVENIDOS A RTM</p>
-	    <p class="Estilo2 Estilo3">EMPRESA LÃƒÂ­DER EN VENTA DE REPUESTOS </p></td>
+	    <p class="Estilo2 Estilo3">EMPRESA LIDER EN VENTA DE REPUESTOS </p></td>
 	  </tr>
 	<tr>
 	  <td height="4" colspan="2" valign="middle"><img src="../free_osCommerce_template/sources/html/images/spacer.gif" width="1" height="1"></td>
@@ -107,7 +122,10 @@ body {
 	  <td width="80%" valign="top" bgcolor="#FFFFCC" class="footer"><table width="100%" border="0" bgcolor="#FFFFCC">
         <tr>
           <td width="2%" rowspan="12"><img src="img/bg.jpg" width="1" height="396"></td>
-          <td width="98%"><span class="Estilo20">Su registro se realizó con Éxito. </span></td>
+          <td width="98%">
+          	<span class="Estilo20">Su registro del pedido se realizo con Exito. </span>&nbsp;
+          	<span class="Estilo20">El codigo de venta es: </span><span class="Estilo20">${model.codigoVenta}</span>
+          </td>
         </tr>
         <tr>
           <td><span class="Estilo16">Le recomendamos estar al dia con sus pagos. </span></td>
@@ -116,7 +134,7 @@ body {
           <td>&nbsp;</td>
         </tr>
         <tr>
-          <td><input name="btnAceptar" type="submit" id="btnAceptar" value="Aceptar"></td>
+          <td><input name="btnAceptar" type="button" onclick="javascript:finalizar();" id="btnAceptar" value="Aceptar"></td>
         </tr>
         <tr>
           <td>&nbsp;</td>
@@ -148,19 +166,7 @@ body {
 </table>
 </td>
 </tr>
-
-
 </table>
-
-
+</form>
 </body>
 </html>
-
-
-
-
-
-
-
-
-

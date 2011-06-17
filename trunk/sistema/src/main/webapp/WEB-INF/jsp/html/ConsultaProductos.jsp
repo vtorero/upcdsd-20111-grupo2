@@ -35,7 +35,6 @@ body {
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
 .Estilo27 {font-family: Arial, Helvetica, sans-serif}
-.Estilo53 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo40 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo44 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; }
 .Estilo46 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; font-weight: bold; }
@@ -209,7 +208,7 @@ body {
             <tr>
               <th scope="row"><span class="Estilo27"></span></th>
               <td><span class="Estilo40"><strong>Linea Disponible:</strong>: </span></td>
-               <td><span class="Estilo53"><input name="txtDisponible" type="text" id="txtDisponible" value="${model.lineaDisponible}"></span></td>
+               <td><span class="Estilo53"><input name="txtDisponible" type="text" id="txtDisponible" disabled="disabled" value="${model.lineaDisponible}"></span></td>
               <td><span class="Estilo27"></span></td>
               <td>&nbsp;</td>
               <td><span class="Estilo27"></span></td>
@@ -227,7 +226,7 @@ body {
               <td colspan="5" rowspan="5">
               <table width="100%" border="1">
                   <tr>
-                    <td width="6%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo75">N°</span></td>
+                    <th width="6%" bgcolor="#CC0000" class="Estilo27" scope="row"><span class="Estilo75">N°</span></th>
                     <td width="34%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Descripcion</span></td>
                     <td width="23%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Precio </span></td>
                     <td width="12%" bgcolor="#CC0000" class="Estilo27"><span class="Estilo75">Cantidad</span></td>
@@ -236,10 +235,10 @@ body {
                   </tr>
                   <c:forEach items="${model.productos}" var="producto">
 	                  <tr>
-	                    <td class="Estilo53" scope="row">${producto.codigo}</td>
-	                    <td class="Estilo53">${producto.descripcion}</td>
-	                    <td class="Estilo53">${producto.precio}</td>
-	                    <td class="Estilo53">
+	                    <th class="Estilo27" scope="row">${producto.codigo}</th>
+	                    <td class="Estilo27">${producto.descripcion}</td>
+	                    <td class="Estilo27">${producto.precio}</td>
+	                    <td class="Estilo27">
 	                    	<select id="cantidad${producto.codigo}" name="cantidad${producto.codigo}">
 	                    		<option value="1">1</option>
 	                    		<option value="2">2</option>
@@ -252,8 +251,8 @@ body {
 	                    		<option value="9">9</option>
 	                    		<option value="10">10</option>
 	                    	</select>
-	                    <td class="Estilo53">${producto.tipo}</td>
-	                    <td class="Estilo53" align="center"><input type="checkbox" name="chkProducto" value="${producto.codigo}"></td>
+	                    <td class="Estilo27">${producto.tipo}</td>
+	                    <td class="Estilo27" align="center"><input type="checkbox" name="chkProducto" value="${producto.codigo}"></td>
 	                  </tr>
                   </c:forEach>
               </table></td>
