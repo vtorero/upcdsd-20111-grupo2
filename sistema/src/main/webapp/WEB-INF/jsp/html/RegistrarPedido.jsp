@@ -34,7 +34,7 @@ body {
 .Estilo13 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 18px; }
 .Estilo17 {color: #000000}
 .Estilo18 {color: #000000; font-weight: bold; font-family: Arial, Helvetica, sans-serif; font-size: 12px; }
-.Estilo27 {font-family: Arial, Helvetica, sans-serif; font-size: 11px;}
+.Estilo27 {font-family: Arial, Helvetica, sans-serif}
 .Estilo40 {font-family: Arial, Helvetica, sans-serif; font-size: 11px; }
 .Estilo48 {font-family: Arial, Helvetica, sans-serif; font-weight: bold; font-size: 12px; }
 .Estilo52 {font-weight: bold; font-size: 11px; color: #FFFFFF; }
@@ -223,11 +223,7 @@ function atras()
                   <select name="cboTipoPago">
                     <option>Contado</option>
                     <option>Credito</option>
-                                                      </select>
-                </span></td>
-                <td><span class="Estilo40">Fecha Vencimiento: </span></td>
-                <td><span class="Estilo27">
-                  <input name="txtFechaPago" type="text" id="txtFechaPago">
+                  </select>
                 </span></td>
               </tr>
               <tr>
@@ -235,7 +231,7 @@ function atras()
                 <td><span class="Estilo40">Descuento: </span></td>
                 <td><span class="Estilo27">
                   <label></label>
-                  <input name="txtDescuento" type="text" id="txtDescuento">
+                  <input name="descuento" type="text" id="descuento">
                 </span></td>
                 <td><span class="Estilo40">Moneda: </span></td>
                 <td><span class="Estilo27">
@@ -316,7 +312,7 @@ function atras()
                 <td><span class="Estilo27"></span></td>
                 <td><span class="Estilo48">Sub Total:</span></td>
                 <td align="right"><span class="Estilo27">
-                  <input name="txtSubTotal" type="text" disabled="disabled" id="txtSubTotal">
+                  <input name="subTotal" id="subTotal" type="text"  disabled="disabled" value="${model.subtotal}">
                 </span></td>
               </tr>
               <tr>
@@ -325,7 +321,7 @@ function atras()
                 <td><span class="Estilo27"></span></td>
                 <td><span class="Estilo48">I.G.V.</span></td>
                 <td align="right"><span class="Estilo27">
-                  <input name="txtIGV" type="text" disabled="disabled" id="txtIGV">
+                  <input id="igv" name="igv" type="text" disabled="disabled" value="${model.igv}">
                 </span></td>
               </tr>
               <tr>
@@ -334,7 +330,7 @@ function atras()
                 <td><span class="Estilo27"></span></td>
                 <td><span class="Estilo48">Total:</span></td>
                 <td align="right"><span class="Estilo27">
-                  <input name="txtTotal" type="text" disabled="disabled" id="txtTotal">
+                  <input id="total" name="total" type="text" disabled="disabled" value="${model.total}">
                 </span></td>
               </tr>
               <tr>
