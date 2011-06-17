@@ -73,6 +73,7 @@ public class PedidoServiceImpl implements PedidoService
         producto1.setDescripcion("HONDA XR 125");
         producto1.setPrecio(860.00);
         producto1.setTipo("01");
+        producto1.setCantidad(0);
 
         listaProductos.add(producto1);
 
@@ -81,6 +82,7 @@ public class PedidoServiceImpl implements PedidoService
         producto2.setDescripcion("LLANTAS HR21");
         producto2.setPrecio(350.00);
         producto2.setTipo("03");
+        producto2.setCantidad(0);
 
         listaProductos.add(producto2);
 
